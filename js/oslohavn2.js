@@ -48,35 +48,40 @@ function initMap () {
   // the bounds of the image, and a reference to the map.
   overlay = new OslohavnOverlay(bounds, srcImage, map)
 
-  /*	var marker = null;
+  var icons = {
+    marker3d: '3d-punkt.svg',
+    marker360: '360-punkt.svg',
+    markerFilm: 'film-punkt.svg'
+  }
 
-	function autoUpdate() {
-	  navigator.geolocation.watchPosition(function(position) {  
-	    var newPoint = new google.maps.LatLng(position.coords.latitude, 
-	                                          position.coords.longitude);
+  var features = [
+    {
+      lat: 59.9083457,
+      lng: 10.7468308,
+      type: 'marker3d'
+    },
+    {
+      lat: 59.9081292,
+      lng: 10.7331403,
+      type: 'marker360'
+    },
+    {
+      lat: 59.9082,
+      lng: 10.74,
+      type: 'markerFilm'
+    }
+  ]
 
-	    if (marker) {
-	      // Marker already created - Move it
-	      marker.setPosition(newPoint);
-	    }
-	    else {
-	      // Marker does not exist - Create it
-	      marker = new google.maps.Marker({
-	        position: newPoint,
-	        map: map
-	      });
-	    }
-
-	    // Center the map on the new position
-	    map.setCenter(newPoint);
-	  }); 
-
-	  // Call the autoUpdate() function every 3 seconds
-	  setTimeout(autoUpdate, 3000);
-	}
-
-	autoUpdate();
-//end geotracker     */
+  features.forEach(function (feature) {
+    new google.maps.Marker({
+      position: new google.maps.LatLng(feature.lat, feature.lng),
+      icon: {
+        url: '/img/' + icons[feature.type],
+        scaledSize: new google.maps.Size(23, 32)
+      },
+      map
+    })
+  })
 } //End of initMap
 
 /** @constructor */
