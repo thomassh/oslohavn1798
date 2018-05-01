@@ -56,14 +56,16 @@ function initMap () {
 
   var features = [
     {
-      lat: 59.9083457,
-      lng: 10.7468308,
+      lat: 59.9097022,
+      lng: 10.7513600,
       type: 'marker3d'
+	  //lysthuset
     },
     {
-      lat: 59.9081292,
-      lng: 10.7331403,
+      lat: 59.9099002,
+      lng: 10.7506000,
       type: 'marker360'
+	  //paléhaven
     },
     {
       lat: 59.9082,
@@ -71,7 +73,7 @@ function initMap () {
       type: 'markerFilm'
     }
   ]
-
+  
   features.forEach(function (feature) {
     new google.maps.Marker({
       position: new google.maps.LatLng(feature.lat, feature.lng),
@@ -82,6 +84,10 @@ function initMap () {
       map
     })
   })
+  
+
+
+  
 } //End of initMap
 
 /** @constructor */
@@ -238,7 +244,10 @@ function autoUpdate () {
       marker = new google.maps.Marker({
         position: newPoint,
         map: map,
-        icon: '/img/current_location_smaller.png'
+	    icon: {
+	      url: '/img/current_location_smaller.svg',
+	      scaledSize: new google.maps.Size(18, 28)
+	    }
       })
     }
 
