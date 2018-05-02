@@ -30,7 +30,8 @@ function initMap () {
     minZoom: 16,
     maxZoom: 18,
     streetViewControl: false,
-    mapTypeControl: false
+    mapTypeControl: false,
+	gestureHandling: "greedy"
   }
 
   map = new google.maps.Map(document.getElementById('map'), options)
