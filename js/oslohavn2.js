@@ -19,9 +19,10 @@ var overlay
 OslohavnOverlay.prototype = new google.maps.OverlayView()
 
 //Initialize Google maps
-var map
+var map;
 
-function initMap () {
+function initMap() {
+
   //var center = {lat: 63.432717, lng: 10.404480}; Trondheim
   var center = { lat: 59.909, lng: 10.7508 }
   var options = {
@@ -31,7 +32,7 @@ function initMap () {
     maxZoom: 18,
     streetViewControl: false,
     mapTypeControl: false,
-	gestureHandling: "greedy"
+    gestureHandling: "greedy"
   }
 
   map = new google.maps.Map(document.getElementById('map'), options)
@@ -59,14 +60,16 @@ function initMap () {
     {
       lat: 59.9097022,
       lng: 10.7513600,
-      type: 'marker3d'
-	  //lysthuset
+      type: 'marker3d',
+      data: { id: 'ad88057e7ecb40f58b333bb33037802c' }
+      //lysthuset
     },
     {
       lat: 59.9099002,
       lng: 10.7506000,
-      type: 'marker360'
-	  //paléhaven
+      type: 'marker360',
+      data: { id: '' }
+      //paléhaven
     },
     {
       lat: 59.9082,
@@ -74,9 +77,30 @@ function initMap () {
       type: 'markerFilm'
     }
   ]
+
+  var templates = {
+    marker3d: function(data) {
+      return `<div class="sketchfab-embed-wrapper"><iframe width="640" height="480" src="https://sketchfab.com/models/${data.id}/embed" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/models/${data.id}?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;"></p></div>`
+    },
+    marker360: function (data){return `<div style="width: 640px; height: 480px;"><a-scene embedded>
+
+    <a-assets>
+        <img id='1798' src="img/christiania-havn_equirectangular.jpg" />
+    </a-assets>
+    
+    <a-sky src='#1798' radius='2500'></a-sky>	
   
+    <a-camera position='0 0.5 2'>
+    </a-camera>
+  
+  </a-scene></div>`},
+    markerFilm: 'film-punkt.svg'
+  }
+
+  var infoWindow = new google.maps.InfoWindow();
+
   features.forEach(function (feature) {
-    new google.maps.Marker({
+    var marker = new google.maps.Marker({
       position: new google.maps.LatLng(feature.lat, feature.lng),
       icon: {
         url: '/img/' + icons[feature.type],
@@ -84,15 +108,26 @@ function initMap () {
       },
       map
     })
+
+    marker.addListener('click', function () {
+      var template = templates[feature.type];
+      var content = template(feature.data);
+      infoWindow.setContent(content);
+      infoWindow.open(map, marker);
+    });
+
   })
-  
 
 
-  
+
+
+
 } //End of initMap
 
+
+
 /** @constructor */
-function OslohavnOverlay (bounds, image, map) {
+function OslohavnOverlay(bounds, image, map) {
   // Initialize all properties.
   this.bounds_ = bounds
   this.image_ = image
@@ -161,7 +196,7 @@ OslohavnOverlay.prototype.onRemove = function () {
 
 //Call geolocalization
 var watchID
-function showPosition () {
+function showPosition() {
   if (navigator.geolocation) {
     autoUpdate()
     // watchID = navigator.geolocation.watchPosition(successCallback);
@@ -170,7 +205,7 @@ function showPosition () {
   }
 }
 
-function successCallback (position) {
+function successCallback(position) {
   toggleWatchBtn.innerHTML = 'Stop Watching'
 
   // Check position has been changed or not before doing anything
@@ -182,7 +217,7 @@ function successCallback (position) {
   }
 }
 
-function startWatch () {
+function startWatch() {
   var toggleWatchBtn = document.getElementById('toggleWatchBtn')
 
   toggleWatchBtn.onclick = function () {
@@ -232,7 +267,7 @@ var marker = null
 // var newPoint = new google.maps.LatLng(position.coords.latitude,
 //                                       position.coords.longitude);
 
-function autoUpdate () {
+function autoUpdate() {
   watchID = navigator.geolocation.watchPosition(function (position) {
     toggleWatchBtn.innerHTML = 'Stop Watching'
     var newPoint = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
@@ -245,10 +280,10 @@ function autoUpdate () {
       marker = new google.maps.Marker({
         position: newPoint,
         map: map,
-	    icon: {
-	      url: '/img/current_location_smaller.svg',
-	      scaledSize: new google.maps.Size(18, 28)
-	    }
+        icon: {
+          url: '/img/current_location_smaller.svg',
+          scaledSize: new google.maps.Size(18, 28)
+        }
       })
     }
 
