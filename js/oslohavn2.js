@@ -62,19 +62,34 @@ function initMap() {
       lng: 10.7513600,
       type: 'marker3d',
       data: { id: 'ad88057e7ecb40f58b333bb33037802c' }
-      //lysthuset
+      //lysthuset 3D
+    },
+    {
+      lat: 59.9100002,
+      lng: 10.7495500,
+      type: 'marker3d',
+      data: { id: 'ad88057e7ecb40f58b333bb33037802c' }
+      //prinsensgt/lille strandgt 3D
+    },
+    {
+      lat: 59.9095402,
+      lng: 10.7478000,
+      type: 'marker3d',
+      data: { id: 'ad88057e7ecb40f58b333bb33037802c' }
+      //fred olsensgt/tollbugt 3D
     },
     {
       lat: 59.9099002,
       lng: 10.7506000,
       type: 'marker360',
-      data: { id: '' }
+      data: { url: 'christiania-havn_equirectangular.jpg' }
       //paléhaven
     },
     {
       lat: 59.9082,
       lng: 10.74,
-      type: 'markerFilm'
+      type: 'markerFilm',
+      data: { id: '2TKXdVJ0waY'}
     }
   ]
 
@@ -83,18 +98,16 @@ function initMap() {
       return `<div class="sketchfab-embed-wrapper"><iframe width="640" height="480" src="https://sketchfab.com/models/${data.id}/embed" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/models/${data.id}?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;"></p></div>`
     },
     marker360: function (data){return `<div style="width: 640px; height: 480px;"><a-scene embedded>
-
-    <a-assets>
-        <img id='1798' src="img/christiania-havn_equirectangular.jpg" />
-    </a-assets>
     
-    <a-sky src='#1798' radius='2500'></a-sky>	
+    <a-sky src='img/${data.url}' radius='2500'></a-sky>	
   
     <a-camera position='0 0.5 2'>
     </a-camera>
   
   </a-scene></div>`},
-    markerFilm: 'film-punkt.svg'
+    markerFilm: function(data) {
+      return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${data.id}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`
+    }
   }
 
   var infoWindow = new google.maps.InfoWindow();
