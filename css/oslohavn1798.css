@@ -167,7 +167,6 @@ button {
 	font-size:2.0rem;
 	color:white;
 	outline:none;
-	display:none;
 }
 
 #app-button:hover {
@@ -255,6 +254,10 @@ button {
 	
 	#partnere img:nth-child(8) {
 	    margin-top:30px;
+	}
+
+	#logo-box-app {
+		display:none;
 	}
 	
 	
