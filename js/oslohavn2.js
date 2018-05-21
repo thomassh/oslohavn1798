@@ -169,12 +169,13 @@ function initMap() {
   var templates = {
     marker3d: function(data) {
       return `<div class="sketchfab-embed-wrapper"><iframe width="260" height="379" 
-      src="https://sketchfab.com/models/${data.id}/embed" frameborder="0" 
+      src="https://sketchfab.com/models/${data.id}/embed?annotation_cycle=8" frameborder="0" 
       allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" 
       onmousewheel=""></iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
       <a href="https://sketchfab.com/models/${data.id}?utm_medium=embed&utm_source=website&utm_campain=share-popup" 
       target="_blank" style="font-weight: bold; color: #1CAAD9;"></p></div>`
     },
+
     /*marker360: function (data){return `<div style="width: 640px; height: 480px;"><a-scene embedded>
     
     <a-sky src='img/${data.url}' radius='2500'></a-sky>	
@@ -184,10 +185,12 @@ function initMap() {
   
   </a-scene></div>`},*/
   marker360: function (data){return `<iframe width="260" height="379" 
-  style="width: 260px; height: 379px; border: none;" frameborder="0" 
-  scrolling="no" allowvr="yes" allowfullscreen="true" style="max-width: 100%;" 
+  style="width: 260px; height: 379px; border: none;" frameborder="0" allow="vr,gyroscope,accelerometer,fullscreen"
+  scrolling="no" allowfullscreen="true" style="max-width: 100%;" 
   src="https://kuula.co/share/${data.id}?fs=1&vr=1&iosfs=1&thumbs=1&hideinst=1&chromeless=1&logo=-1"></iframe>`},
-    markerFilm: function(data) {
+
+  
+  markerFilm: function(data) {
       return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${data.id}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`
     }
   }

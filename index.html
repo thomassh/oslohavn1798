@@ -13,33 +13,74 @@
 
 <body>
 
-
-
 <div id="cover-container">
-	<div id="logo-box"><img id="logo" src="img/logo.png" /></div>
-	<div id="cover-text" lang="nb">
-		<h1>Her kommer interaksjons&shy;prosjektet Oslo havn 1798.</h1>
-		<p>Prosjektet skal utvikle en interaktiv opplevelse langs Oslo havn (Havne&shy;promenaden) som gir publikum, både barn og voksne, innblikk i Oslos og Norges historie og kunst&shy;historie på slutten av 1700-tallet. Oslo havn 1798 utvikles av <a href="http://www.tidvis.no/" target="_blank">Tidvis AS</a>. 
-		</p><p>Følg prosjektet på <a href="https://www.facebook.com/Oslohavn1798/" target="_blank">Facebook</a>.</p>
 
-	<button type="button" id="app-button" onclick="window.location.href='app.html'" target="_self">Start tidsmaskinen</button>
+	<header>
+
+		<nav class="site-nav">
+			<ul>
+				<li><a href="start">Hjem</a></li>
+				<li><a href="om_oslo_havn">Om Oslo havn 1798</a></li>
+				<li><a href="om_tidvis">Om Tidvis</a></li>
+				<li><a href="historiske_kilder">Historiske kilder</a></li>
+			</ul>
+		</nav>
+		
+		<div class="menu-toggle">
+			<div class="hamburger"></div>
+		</div>
+		
+	</header>
+
+	<div id="logo-box"><img id="logo" src="img/logo.png" /></div>
+	<div id="cover-text" class="fade-up" lang="nb"></div>
+
+	<div id=partnere>
+		<img src="../img/logo_forskningsdagene.svg" />	
+		<img src="../img/logo_kulturraadet.svg" />
+		<img src="../img/logo_eckboslegat.svg" />
+		<img src="../img/logo_byarkivet.svg" />
+		<img src="../img/logo_bymuseet.svg" />
+		<img src="../img/logo_maritime_museum.svg" />
+		<img src="../img/logo_NB.svg" />
+		<img src="../img/logo_nasjonalmuseet.svg" />
+		<img src="../img/logo_arkivverket.svg" />
+		<img src="../img/logo_NLI.svg" />
+		<img src="../img/logo_folkemuseet.svg" />
+		<img src="../img/logo_maritime-stiftelse.svg" />
 	</div>
 
-<div id=partnere>
-	<img src="../img/logo_forskningsdagene.svg" />	
-	<img src="../img/logo_kulturraadet.svg" />
-	<img src="../img/logo_eckboslegat.svg" />
-	<img src="../img/logo_byarkivet.svg" />
-	<img src="../img/logo_bymuseet.svg" />
-	<img src="../img/logo_maritime_museum.svg" />
-	<img src="../img/logo_NB.svg" />
-	<img src="../img/logo_nasjonalmuseet.svg" />
-	<img src="../img/logo_arkivverket.svg" />
-	<img src="../img/logo_NLI.svg" />
-	<img src="../img/logo_folkemuseet.svg" />
 </div>
 
-</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+
+<script>
+
+	$('.menu-toggle').click(function() {
+		$('.site-nav').toggleClass('site-nav--open', 400);
+		$(this).toggleClass('open');
+	});
+
+	// animate
+	$('.site-nav a').click(function(){
+		$('.site-nav').toggleClass('site-nav--open', 400);
+		$('.menu-toggle').toggleClass('open');
+	});
+
+	// initial
+	$(document).ready(function(){
+		$('#cover-text').load('../start.html');
+	});
+
+	// handle menu clicks
+	$('.site-nav a').click(function() {
+		var page = $(this).attr('href');
+		$('#cover-text').load('../' + page + '.html');
+		return false;
+	});
+
+</script>
 
 
 

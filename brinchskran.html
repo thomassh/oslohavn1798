@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Brinchs kran</title>
+
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
+<script src="js/aframe-extras.min.js"></script>
+<script src="js/animation-mixer.js"></script>
+
+
+<script>
+
+	//if(document.querySelector("a-marker").object3D.visible == false)
+	
+
+</script>
+
+<style> #arjsDebugUIContainer {display:none;}</style>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+	
+  <a-scene embedded arjs>
+	
+	<a-assets>
+		<a-asset-item id="brinch" src="models/brinchs_kran/scene.gltf"></a-asset-item>
+	</a-assets>
+        
+		
+        <a-marker type='pattern' url='img/pattern-marker.patt'>
+
+			<a-entity gltf-model="#brinch" scale="0.001 0.001 0.001" position="-0.3 -3.3 16" rotation="0 0 0">
+				<!--<a-animation attribute="rotation" dur="5000" to="450 0 0" easing="linear" repeat="indefinite"></a-animation>-->
+			</a-entity>
+
+		</a-marker>
+		
+		
+        <a-entity camera></a-entity>
+        <a-light type="directional" color="#fbffd3" intensity="1.6" position="5.7 2.1 -8.1"></a-light>
+        <a-light type="ambient" color="#fbffd3" intensity="2.5" position="0 0 -3.5"></a-light>
+
+	</a-scene>
+
+</body>
+
+</html>
