@@ -1,35 +1,154 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Oslo havn 1798</title>
+  <meta charset="UTF-8">
+  <title>Oslo havn 1798</title>
 
-<link rel="stylesheet" type="text/css" href="css/oslohavn1798.css" />
-<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/oslohavn1798.css" />
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1" />
 
 </head>
 
 <body>
-	
-<div id="logo-box-app"><img id="logo-app" src="img/logo-app.svg" /></div>
 
-<div id="map"></div>
+  <div id="button-menu">
+    <button type="button" id="toggleWatchBtn">Finn meg på kartet!</button>
 
-<script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Trigger/Open The Modal -->
+    <button type="button" id="myBtn">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+        <path d="M14 9.5c0-0.825 0.675-1.5 1.5-1.5h1c0.825 0 1.5 0.675 1.5 1.5v1c0 0.825-0.675 1.5-1.5 1.5h-1c-0.825 0-1.5-0.675-1.5-1.5v-1z"></path>
+        <path d="M20 24h-8v-2h2v-6h-2v-2h6v8h2z"></path>
+        <path d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z"></path>
+      </svg>
+    </button>
+  </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQeOCQuyykCzjnb2M874aEVpHTl3RRR6Y"></script>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <!--<div class="modal-header">
+        <h2>Modal Header</h2>
+      </div>-->
+      <div class="modal-body">
+        <span class="close">&times;</span>
+        <h1>Hvor staar til?</h1>
+        <p>Når du nå beveger deg inn i den digitale verdenen Oslo havn 1798 er du skipper Nils J. Strøm. Du har nettopp har
+          ankommet med skipet «Abigale Mara» som har vært i London med trelast. Du trenger å orientere seg litt i byen, så
+          finn følgende steder i det digitale kartet:</p>
+        <label class="ch-container"><b>Tollboden</b> – så du kan fortolle tekstilene du har tatt med deg
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        <label class="ch-container"><b>En sjøbod</b> – så du kan lagre varene dine
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        <label class="ch-container"><b>En skipskran</b> – så skipet ditt kan få en overhaling
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        <label class="ch-container"><b>Et gjestgiveri</b> – så du har overnatting
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        <label class="ch-container"><b>En kirke</b> – så du kan takke for den trygge overfarten
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        <label class="ch-container"><b>En park</b> – så du kan strekke bena etter ukene til sjøs
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        <label class="ch-container"><b>En kjeglebane</b> – så du kan more deg
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        <label class="ch-container"><b>En ballsal</b> – så du kan svinge deg
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+
+        <h2>Lykke til og god tur i Oslo havn i 1798</h2>
+      </div>
+      <!--<div class="modal-footer">
+        <h3>Modal Footer</h3>
+      </div>-->
+    </div>
+
+  </div>
+
+  <a href="index.html">
+    <div id="logo-box-app">
+      <img id="logo-app" src="img/logo-app.svg" />
+    </div>
+  </a>
+
+  <div id="map"></div>
+
+  <!--<audio id="sound">
+      <source src="audio/flute.mp3"></source>
+      <source src="audio/flute.ogg"></source>
+      Your browser isn't invited for super fun audio time.
+  </audio>-->
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQeOCQuyykCzjnb2M874aEVpHTl3RRR6Y"></script>
+
+  <script src="js/oslohavn2.js" defer></script>
+
+  <script>
+
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal 
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    var is_mobile = ((/Mobile|iPhone|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera) ? true : false);
+
+if ( !is_mobile ) {
+  // whatever the init call is
+  perfectScroller.init()
+}
+
+    /*var soundb = document.getElementById("sound");*/
+
+    /*music.onclick = function () {
+      soundb.play();
+    }*/
 
 
-<script src="js/oslohavn2.js" defer></script>
+  </script>
 
- <!--   <div id="content">
-      Hello world!
-    </div>-->
-
-<button type="button" id="toggleWatchBtn">Start Watching</button>
 </body>
-	
+
 
 </html>

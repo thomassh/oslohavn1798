@@ -83,29 +83,142 @@ function initMap() {
       lat: 59.9090502,
       lng: 10.7537000,
       type: 'marker360',
-      data: { id: '7lrPJ' }
+      data: { id: '7PNhh' },
+      audio: 'flute'
       //bordtomter 360
+    },
+    {
+      lat: 59.9079002,
+      lng: 10.7533900,
+      type: 'marker360',
+      data: { id: '7PNJv' }
+      //Utenfor Brinchs kran 360
+    },
+    {
+      lat: 59.9073902,
+      lng: 10.7531000,
+      type: 'marker360',
+      data: { id: '7PNSG' }
+      //Nære på Brinchs kran 360
     },
     {
       lat: 59.9095402,
       lng: 10.7478000,
       type: 'marker360',
-      data: { id: '7lrqD' }
+      data: { id: '7PN5B' }
       //Tollbugata/Fred Olsens gt 360
     },
     {
       lat: 59.9089502,
-      lng: 10.7501100,
+      lng: 10.7498800,
       type: 'marker360',
-      data: { id: '7lrqJ' }
+      data: { id: '7PNhN' }
       //Ved siden av Tollboden 360
     },
     {
-      lat: 59.9084002,
+      lat: 59.9092002,
+      lng: 10.7489800,
+      type: 'marker360',
+      data: { id: '7PNSm' }
+      //Strandgata/Tollbugata 360
+    },
+    {
+      lat: 59.9107702,
+      lng: 10.7503500,
+      type: 'marker360',
+      data: { id: '7PNSp' }
+      //Kjeglebane 360
+    },
+    /*{
+      lat: 59.9085002,
       lng: 10.7473000,
       type: 'marker360',
-      data: { id: '7lrqb' }
-      //sadelmakerhullet 360
+      data: { id: '7PN5S' }
+      //Grønningen/sadelmakerhullet/fisketorget 360
+    },*/
+    /*{
+      lat: 59.9091202,
+      lng: 10.7475000,
+      type: 'marker360',
+      data: { id: '7PNhL' }
+      //Grønningen 360
+    },*/
+    {
+      lat: 59.9088002,
+      lng: 10.7481000,
+      type: 'marker360',
+      data: { id: '7PNSq' }
+      //Grønningen/Børshagen 360
+    },
+    {
+      lat: 59.9089002,
+      lng: 10.7478000,
+      type: 'marker360',
+      data: { id: '7PNSX' }
+      //Grønningen/Børshagen oversikt 360
+    },
+    {
+      lat: 59.9082602,
+      lng: 10.7473400,
+      type: 'marker360',
+      data: { id: '7PNSP' }
+      //Fisketorget 360
+    },
+    {
+      lat: 59.9075602,
+      lng: 10.7484000,
+      type: 'marker360',
+      data: { id: '7PNSf' }
+      //Enden av Langkaia 360
+    },
+    {
+      lat: 59.9081902,
+      lng: 10.7466000,
+      type: 'marker360',
+      data: { id: '7PNSl' }
+      //Sadelmakerhullet 360
+    },
+    {
+      lat: 59.910713,
+      lng: 10.749119,
+      type: 'marker360',
+      data: { id: '7PNh0' }
+      //foran inngagen til Paleet 360
+    },
+    {
+      lat: 59.9098402,
+      lng: 10.7483000,
+      type: 'marker360',
+      data: { id: '7PNhp' }
+      //Treschowgården 360
+    },
+    {
+      lat: 59.9101702,
+      lng: 10.7485500,
+      type: 'marker360',
+      data: { id: '7PN5t' }
+      //Fred Olsens gt/prinsens gt 360
+    },
+    {
+      lat: 59.9100002,
+      lng: 10.74958000,
+      type: 'marker360',
+      data: { id: '7PNh7' }
+      //Paleet/paléhaven 360
+    },
+    {
+      lat: 59.9095002,
+      lng: 10.75150000,
+      type: 'marker360',
+      data: { id: '7PNh5' }
+      //Havnebassenget utenfor paviljongen 360
+    },
+    {
+      lat: 59.9088002,
+      lng: 10.75070000,
+      type: 'marker360',
+      data: { id: '7PNJF' }
+      //Havnebassenget utenfor Tollboden 360
     },
     /*{
       lat: 59.9099002,
@@ -136,8 +249,8 @@ function initMap() {
       //tollbod 3D
     },
     {
-      lat: 59.9089002,
-      lng: 10.7486000,
+      lat: 59.9094202,
+      lng: 10.7480300,
       type: 'marker3d',
       data: { id: 'fbbedd3820494d16b87130d4fa49470e' }
       //tollvaktboden 3D
@@ -187,7 +300,8 @@ function initMap() {
   marker360: function (data){return `<iframe width="260" height="379" 
   style="width: 260px; height: 379px; border: none;" frameborder="0" allow="vr,gyroscope,accelerometer,fullscreen"
   scrolling="no" allowfullscreen="true" style="max-width: 100%;" 
-  src="https://kuula.co/share/${data.id}?fs=1&vr=1&iosfs=1&thumbs=1&hideinst=1&chromeless=1&logo=-1"></iframe>`},
+  src="https://kuula.co/share/${data.id}?fs=1&vr=1&iosfs=1&thumbs=1&hideinst=1&chromeless=1&logo=-1"></iframe>`
+  },
 
   
   markerFilm: function(data) {
@@ -217,11 +331,7 @@ function initMap() {
   })
 
 
-
-
-
 } //End of initMap
-
 
 
 /** @constructor */
@@ -320,11 +430,11 @@ function startWatch() {
 
   toggleWatchBtn.onclick = function () {
     if (watchID) {
-      toggleWatchBtn.innerHTML = 'Start Watching'
+      toggleWatchBtn.innerHTML = 'Finn meg på kartet!'
       navigator.geolocation.clearWatch(watchID)
       watchID = false
     } else {
-      toggleWatchBtn.innerHTML = 'Aquiring Geo Location...'
+      toggleWatchBtn.innerHTML = 'Søker...'
       showPosition()
     }
   }
