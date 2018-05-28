@@ -25,13 +25,13 @@ img {
 }
 
 ::-moz-selection { /* Code for Firefox */
-    color: #ee984d;
-    background: #e48736; 
+    color: white;
+    background: #ee984d; 
 }
 
 ::selection {
-    color: #ee984d;
-    background: #e48736; 
+    color: white;
+    background: #ee984d; 
 }
 
 a {
@@ -267,46 +267,46 @@ header {
 }
 
 /* The Modal (background) */
-.modal {
+/*.modal {
     display: visible; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 9000; /* Sit on top */
-    left: 0;
+  /*  position: fixed; /* Stay in place */
+  /*  z-index: 9000; /* Sit on top */
+  /*  left: 0;
     top: 0;
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    overflow: scroll;
+  /*  height: 100%; /* Full height */
+  /*  overflow: auto; /* Enable scroll if needed */
+  /*  background-color: rgb(0,0,0); /* Fallback color */
+  /*  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  /*  overflow: scroll;
     -webkit-overflow-scrolling:touch;
 }
 
 /* Modal Content/Box */
 /* Modal Content */
-.modal-content {
+/*.modal-content {
     position: relative;
     background-color: rgb(241, 239, 236);
     background-image: url(../img/lightpaperfibers.png);
     /*border:17px ridge #f1a664;    */
-    margin: auto;
+   /* margin: auto;
     padding: 4em;
     padding-top:8em;
     /*top:50%;
     transform :translateY(-50%);*/
-    top:-40px;
+  /*  top:-40px;
     width: 80%;
     max-width:600px;
     /*-webkit-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
-    animation-name: animatetop;
+  /*  animation-name: animatetop;
     animation-duration: 0.4s;
     /*border: #2e1a12 solid 15px;
     -webkit-box-shadow: inset 0px 0px 10px #0000006b;
     -webkit-border-image: url(../img/wood.png) 200 stretch;
     -moz-border-image: url(../img/wood.png) 250 stretch;
     border-image: url(../img/wood.png) 250 stretch;*/
-    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.3);
+  /*  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.3);
     -webkit-transform: rotate(4deg);
@@ -342,7 +342,7 @@ header {
 }
 
 /* The Close Button */
-.close {
+/*.close {
     color: rgb(175, 175, 175);
     position:fixed;
     right:10px;
@@ -360,7 +360,7 @@ header {
 
 
 /* The container */
-.ch-container {
+/*.ch-container {
     display: block;
     position: relative;
     font-size:1.6rem;
@@ -376,14 +376,14 @@ header {
 }
 
 /* Hide the browser's default checkbox */
-.ch-container input {
+/*.ch-container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
 
 /* Create a custom checkbox */
-.checkmark {
+/*.checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -391,37 +391,37 @@ header {
     width: 20px;
     box-sizing: initial;
     /*background-color: #ccc;*/
-    border:1.5px solid #ccc;
+ /*   border:1.5px solid #ccc;
 }
 
 /* On mouse-over, add a grey background color */
-.ch-container:hover input ~ .checkmark {
+/*.ch-container:hover input ~ .checkmark {
     background-color: #ccc;
     -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+  /*  transition-duration: 0.4s;
 }
 
 /* When the checkbox is checked, add a blue background */
-.ch-container input:checked ~ .checkmark {
+/*.ch-container input:checked ~ .checkmark {
     /*background-color: #ccc;*/
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+ /*   -webkit-transition-duration: 0.4s; /* Safari */
+  /*  transition-duration: 0.4s;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+/*.checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
 /* Show the checkmark when checked */
-.ch-container input:checked ~ .checkmark:after {
+/*.ch-container input:checked ~ .checkmark:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.ch-container .checkmark:after {
+/*.ch-container .checkmark:after {
     left: 6px;
     top: 2px;
     width: 5px;
@@ -434,20 +434,76 @@ header {
 }
 
 /* Add Animation */
-@keyframes animatetop {
+/*@keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: -40px; opacity: 1}
-}
+}*/
 
 #map {
     height:100vh;
     width:100%;
 }
 
+      /*style the box*/  
+      /*.gm-style .gm-style-iw {
+        background-color: #4f8bc6 !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width:260px !important;
+        max-height: 100% !important;
+        min-height: 379px !important;
+        padding: 0px;
+        overflow:hidden;
+        text-align: center;
+        display: block !important;
+     } */   
+
+     /*.iframe {
+         position:relative;
+         max-width:260px !important;
+         padding:0;
+         margin:0;
+         right:0;
+     }*/
+
+     /*.iframe iframe {
+         max-width:100% !important;
+         padding:0 !important;
+         margin:0 !important;
+
+     }*/
+ 
+     /*style the p tag*/
+     /*.gm-style .gm-style-iw #google-popup p{
+        padding: 10px;
+     }*/
+     
+ 
+    /*style the arrow*/
+    /*.gm-style div div div div div div div div div {
+        background: url(../img/film-punkt.svg);
+        background-color: transparent !important;
+        /*background-color: #3C61AD !important;*/
+        /*padding: 0;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        color: #4f8bc6;
+        font-size: 16px;
+    }*/
+    
+    /*style the link*/
+    /*.gm-style div div div div div div div div a {
+        color: #f1f1f1;
+        font-weight: bold;
+    }*/
+
 /*button {
     height:40px;
     width:80px;
 }*/
+
 
 #logo {
     position:absolute;
@@ -466,7 +522,7 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #73abe0; /*#96368b;*/
-    background-blend-mode: multiply;
+    background-blend-mode: multiply;    
     text-align:center;
     overflow-y: auto;
     overflow-x: hidden;
@@ -546,19 +602,36 @@ header {
     transform: translateY(-100%) translateX(-100%);
     z-index:7000;
     cursor: pointer;
-    background:transparent;
+    background-color: #4f8bc6 !important;
+    border-radius: 20px;
+    background-image:linear-gradient(to bottom,#5494d3, #39648f);
+    width:32px;
+    height:32x;
+    right:10px;
+    bottom:4px;
     outline:none;
+    line-height: 0;
+}
+
+#myBtn:hover  {
+    background-color: white !important;
+    background-image:none;
+    transition: all ease-in-out .3s ;
 }
 
 #myBtn svg {
     position:relative;
-    width:60%;
+    width: 32px;
+    max-height:32px;
     margin-right:10px;
+}
 
+#myBtn svg path {
+    fill:white;
 }
 
 #myBtn svg:hover path {
-    fill:white;
+    fill:black;
     transition: all ease-in-out .3s ;
 }
 
@@ -566,8 +639,9 @@ header {
     width:100%;
     height:100%;
     text-align:center;	
-    background-color: transparent !important;
-    border:2px solid black;
+    background-color: #4f8bc6 !important;
+    background-image:linear-gradient(to bottom,#5494d3, #39648f);
+    border:none;
     border-radius: 10px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -579,11 +653,10 @@ header {
     z-index: 5000;
 }
 
-#toggleWatchBtn:hover {
-    background-color: #73abe0 !important;
+#toggleWatchBtn:hover, #toggleWatchBtn:focus {
+    background-color: white !important;
+    background-image:none;
     border:#73abe0;
-    opacity:0.8;
-    color:black;
 }
 
 /*mobile*/
@@ -806,3 +879,59 @@ header {
 }
 
 }
+
+
+/*iframes*/
+.gm-style-iw {
+	/*width: 100% !important;*/
+	top: 15px !important;
+    /*left: 5px !important;*/
+	background-color:#4f8bc6;
+	box-shadow: 0 0px 6px rgba(0, 0, 0, 0.6);
+    /*border: 1px solid rgba(72, 181, 233, 0.6);*/
+    text-align:center;
+    padding-top:10px;
+	border-radius: 10px 10px 10px 10px;
+}
+/*#iw-container {
+	margin-bottom: 10px;
+}*/
+.iw-title {
+    font-size: 2.0rem;
+    padding:5px;
+    color: white;
+    border:1px solid red;
+}
+
+#iw-container {
+    /*padding: 10px;*/
+    margin: 0px !important;
+    padding:0px !important;
+    border:1px solid green;
+    /*border-radius: 2px 2px 0 0;*/
+    	/*margin-right: 1px;*/
+	/*padding: 15px 5px 20px 15px;*/
+    overflow-x: hidden;
+}
+
+.iw-content {
+    border:1px solid yellow;
+}
+
+iframe {
+    padding:0px !important;
+    margin:0px !important;
+    max-width:100% !important;
+    border:1px solid white;
+}
+/*.iw-bottom-gradient {
+	position: absolute;
+	width: 326px;
+	height: 25px;
+	bottom: 10px;
+	right: 18px;
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}*/
