@@ -14,6 +14,28 @@
   }
 });*/
 
+var isMobile = {
+  Android: function() {
+      return navigator.userAgent.match(/Android/i);
+  },
+  BlackBerry: function() {
+      return navigator.userAgent.match(/BlackBerry/i);
+  },
+  iOS: function() {
+      return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  },
+  Opera: function() {
+      return navigator.userAgent.match(/Opera Mini/i);
+  },
+  Windows: function() {
+      return navigator.userAgent.match(/IEMobile/i);
+  },
+  any: function() {
+      return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+  }
+};
+
+
 //The custom overlay object's prototype to a new instance of OverlayView
 var overlay
 OslohavnOverlay.prototype = new google.maps.OverlayView()
@@ -54,11 +76,9 @@ function initMap() {
   var icons = {
     marker3d: '3d-punkt.svg',
     marker360: '360-punkt.svg',
-    markerFilm: 'film-punkt.svg'
+    markerFilm: 'film-punkt.svg',
+    markerSpill: 'spill-punkt.svg',
   }
-
-  var title = ["Saab", "Volvo", "BMW"];
-
 
   var features = [
     /*{
@@ -86,49 +106,49 @@ function initMap() {
       lat: 59.9090502,
       lng: 10.7537000,
       type: 'marker360',
-      data: { id: '7PNhh' }
+      data: { id: '7PNhh', title: 'Bordtomter' }
       //bordtomter 360
     },
-    {
+    /*{
       lat: 59.9079002,
       lng: 10.7533900,
       type: 'marker360',
-      data: { id: '7PNJv' }
+      data: { id: '7PNJv', title: 'Havnebassenget ved Brinchs kran' }
       //Utenfor Brinchs kran 360
-    },
+    },*/
     {
       lat: 59.9073902,
       lng: 10.7531000,
       type: 'marker360',
-      data: { id: '7PNSG' }
+      data: { id: '7PNSG', title: 'Brinchs kran' }
       //Nære på Brinchs kran 360
     },
     {
       lat: 59.9095402,
       lng: 10.7478000,
       type: 'marker360',
-      data: { id: '7PN5B' }
+      data: { id: '7PN5B', title: 'Tollbugata/Fred Olsens gate' }
       //Tollbugata/Fred Olsens gt 360
     },
     {
       lat: 59.9089502,
       lng: 10.7498800,
       type: 'marker360',
-      data: { id: '7PNhN' }
+      data: { id: '7PNhN', title: 'Utenfor Tollboden' }
       //Ved siden av Tollboden 360
     },
     {
       lat: 59.9092002,
       lng: 10.7489800,
       type: 'marker360',
-      data: { id: '7PNSm' }
+      data: { id: '7PNSm', title: 'Strandgata/Tollbugata' }
       //Strandgata/Tollbugata 360
     },
     {
       lat: 59.9107702,
       lng: 10.7503500,
       type: 'marker360',
-      data: { id: '7PNSp' }
+      data: { id: '7PNSp', title: 'Kjeglebane' }
       //Kjeglebane 360
     },
     /*{
@@ -149,77 +169,77 @@ function initMap() {
       lat: 59.9088002,
       lng: 10.7481000,
       type: 'marker360',
-      data: { id: '7PNSq' }
+      data: { id: '7PNSq', title: 'Grønningen' }
       //Grønningen/Børshagen 360
     },
     {
       lat: 59.9089002,
       lng: 10.7478000,
       type: 'marker360',
-      data: { id: '7PNSX' }
+      data: { id: '7PNSX', title: 'Over Grønningen' }
       //Grønningen/Børshagen oversikt 360
     },
     {
       lat: 59.9082602,
       lng: 10.7473400,
       type: 'marker360',
-      data: { id: '7PNSP' }
+      data: { id: '7PNSP', title: 'Fisketorget' }
       //Fisketorget 360
     },
     {
       lat: 59.9075602,
       lng: 10.7484000,
       type: 'marker360',
-      data: { id: '7PNSf' }
+      data: { id: '7PNSf', title: 'Enden av Langkaia' }
       //Enden av Langkaia 360
     },
     {
       lat: 59.9081902,
       lng: 10.7466000,
       type: 'marker360',
-      data: { id: '7PNSl' }
+      data: { id: '7PNSl', title: 'Sadelmakerhullet' }
       //Sadelmakerhullet 360
     },
     {
       lat: 59.910713,
       lng: 10.749119,
       type: 'marker360',
-      data: { id: '7PNh0' }
+      data: { id: '7PNh0', title: 'Inngangen til Paleet' }
       //foran inngagen til Paleet 360
     },
     {
       lat: 59.9098402,
       lng: 10.7483000,
       type: 'marker360',
-      data: { id: '7PNhp' }
+      data: { id: '7PNhp', title: 'Treschowgården' }
       //Treschowgården 360
     },
     {
       lat: 59.9101702,
       lng: 10.7485500,
       type: 'marker360',
-      data: { id: '7PN5t' }
+      data: { id: '7PN5t', title: 'Fred Olsens gate/Prinsens gate' }
       //Fred Olsens gt/prinsens gt 360
     },
     {
       lat: 59.9100002,
       lng: 10.74958000,
       type: 'marker360',
-      data: { id: '7PNh7' }
+      data: { id: '7PNh7', title: 'Paleet og Paléhagen' }
       //Paleet/paléhaven 360
     },
     {
       lat: 59.9095002,
       lng: 10.75150000,
       type: 'marker360',
-      data: { id: '7PNh5' }
+      data: { id: '7PNh5', title: 'Havnebassenget utenfor Paléhagen' }
       //Havnebassenget utenfor paviljongen 360
     },
     {
       lat: 59.9088002,
       lng: 10.75070000,
       type: 'marker360',
-      data: { id: '7PNJF' }
+      data: { id: '7PNJF', title: 'Havnebassenget utenfor Tollboden' }
       //Havnebassenget utenfor Tollboden 360
     },
     /*{
@@ -233,38 +253,44 @@ function initMap() {
       lat: 59.9074802,
       lng: 10.7535600,
       type: 'marker3d',
-      data: { id: 'bac9cbe7113c447b8705c6e894744ff3' }
+      data: { id: 'bac9cbe7113c447b8705c6e894744ff3', title: 'Brinchs kran' }
       //kran 3D
     },
     {
       lat: 59.9089502,
       lng: 10.7494990,
       type: 'marker3d',
-      data: { id: '24360d044f9e41b2a26eb26fbc4135ab' }
+      data: { id: '24360d044f9e41b2a26eb26fbc4135ab', title: 'Sjøboder' }
       //sjøbod 3D
     },
     {
       lat: 59.9091902,
       lng: 10.7501000,
       type: 'marker3d',
-      data: { id: 'df4dd6b623354951a565c0bc3b5b9900' }
+      data: { id: '8ecf11be057f43a99319544a54e5465a', title: 'Tollboden' }
       //tollbod 3D
     },
     {
       lat: 59.9094202,
       lng: 10.7480300,
       type: 'marker3d',
-      data: { id: 'fbbedd3820494d16b87130d4fa49470e' }
+      data: { id: 'fbbedd3820494d16b87130d4fa49470e', title: 'Tollvaktboden' }
       //tollvaktboden 3D
     },
     {
       lat: 59.9126402,
       lng: 10.7469000,
       type: 'marker3d',
-      data: { id: 'f7050bf71cfc4a7783fc51534db23ca4' }
+      data: { id: 'ad88057e7ecb40f58b333bb33037802c', title: 'Oslo domkirke' }
       //domkirken 3D
+    },
+    {
+      lat: 59.9108202,
+      lng: 10.7506900,
+      type: 'markerSpill',
+      data: { id: 'WebGL10/index.html', title: 'Kjeglebane-spill' }
+      //kjeglebane-spill
     }
-
    /* {
       lat: 59.9099002,
       lng: 10.7506000,
@@ -280,14 +306,22 @@ function initMap() {
     }*/
   ]
 
+  if( isMobile.any() ) {
+    features[23] = {
+      lat: 59.9108202,
+      lng: 10.7506900,
+      type: 'markerSpill',
+      data: { id: 'https://c.simmer.io/static/unityFrame/index.html?url=https%3A%2F%2Fsimmercdn.com%2Funity%2FRZffdeDw9pggAqlC58PnEn9tHAF3%2Fcontent%2F02cd7674-d011-21a6-e99e-4c1f56daad22&imagePath=screens/16.png', title: 'Kjeglebane-spill (krever WebGL)' }
+      //kjeglebane-spill
+    }
+  };
+
   var templates = {
     marker3d: function(data) {
-      return `<div class="sketchfab-embed-wrapper"><iframe width="260" height="379" 
+      return `<div id="iw-container"><div class="iw-content"><div class="sketchfab-embed-wrapper"><iframe width="260" height="379" 
       src="https://sketchfab.com/models/${data.id}/embed?annotation_cycle=8" frameborder="0" 
       allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" 
-      onmousewheel=""></iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
-      <a href="https://sketchfab.com/models/${data.id}?utm_medium=embed&utm_source=website&utm_campain=share-popup" 
-      target="_blank" style="font-weight: bold; color: #1CAAD9;"></p></div>`
+      onmousewheel=""></iframe></div><div class="iw-title"><p>${data.title}</p></div></div>`
     },
 
     /*marker360: function (data){return `<div style="width: 640px; height: 480px;"><a-scene embedded>
@@ -301,13 +335,20 @@ function initMap() {
   marker360: function (data){return `<div id="iw-container"><div class="iw-content"><iframe width="260" height="379"
   style="width: 260px; height: 379px; border: none;" frameborder="0" allow="vr,gyroscope,accelerometer,fullscreen"
   scrolling="no" allowfullscreen="true" style="max-width: 100%;" 
-  src="https://kuula.co/share/${data.id}?fs=1&vr=1&iosfs=1&thumbs=1&hideinst=1&chromeless=1&logo=-1"></iframe><div class="iw-title">Tollboden</div></div></div>`
+  src="https://kuula.co/share/${data.id}?fs=1&vr=1&iosfs=1&thumbs=1&hideinst=1&chromeless=1&logo=-1"></iframe><div class="iw-title"><p>${data.title}</p></div></div></div>`
   },
 
   
   markerFilm: function(data) {
-      return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${data.id}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`
-    }
+      return `<div id="iw-container"><div class="iw-content"><iframe width="560" height="315" src="https://www.youtube.com/embed/${data.id}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><div class="iw-title"><p>${data.title}</p></div></div></div>`
+    },
+  
+  markerSpill: function(data) {
+    return `<div id="iw-container"><div class="iw-content"><iframe width="560" height="350"
+    src="${data.id}" style="border:0"></iframe><div class="iw-title"><p>${data.title}</p></div></div></div>`
+  }
+
+
   }
 
   var infoWindow = new google.maps.InfoWindow();
@@ -330,6 +371,8 @@ function initMap() {
     });
   
   });
+
+
 
     // Event that closes the Info Window with a click on the map
     /*google.maps.event.addListener(map, 'click', function() {
@@ -360,13 +403,13 @@ function initMap() {
     iwBackground.children(':nth-child(4)').css({'display' : 'none'});
 
     // Changes the desired tail shadow color.
-    iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(0, 0, 0, 0.6) 0px 0px 6px', 'z-index' : '1', 'background': '#4f8bc6'});
+    iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'none', 'z-index' : '1', 'background': '#4f8bc6'});
 
     // Reference to the div that groups the close button elements.
     var iwCloseBtn = iwOuter.next();
 
     // Apply the desired effect to the close button
-    iwCloseBtn.css({opacity: '1', right: '8px', top: '5px', width: '23px', height: '23px', 'border': '5px solid #4f8bc6', 'border-radius': '50%', 'box-shadow': '0 0 5px black', 'background-color': '#4f8bc6'});
+    iwCloseBtn.css({opacity: '1', right: '8px', top: '5px', width: '23px', height: '23px', 'content': 'url(img/x.svg)', 'border': '5px solid #4f8bc6', 'border-radius': '50%', 'box-shadow': '0 0 5px black', 'background-color': '#4f8bc6'});
 
     // If the content of infowindow not exceed the set maximum height, then the gradient is removed.
     /*if($('.iw-content').height() < 140){
