@@ -45,14 +45,13 @@ var map;
 
 function initMap() {
 
-  //var center = {lat: 63.432717, lng: 10.404480}; Trondheim
   var center = { lat: 59.909, lng: 10.7508 }
   var options = {
     center: center,
     zoom: 17,
     minZoom: 16,
     maxZoom: 18,
-    streetViewControl: false,
+    streetViewControl: true,
     mapTypeControl: false,
     fullscreenControl: false,
     gestureHandling: "greedy"
@@ -66,10 +65,10 @@ function initMap() {
     new google.maps.LatLng(59.9137, 10.75971)
   )
 
-  // The photograph is courtesy of the U.S. Geological Survey.
+  // The overlay
   var srcImage = '../img/oslohavn1798-kart.png'
 
-  // The custom USGSOverlay object contains the USGS image,
+  // The custom overlay object contains the overlay,
   // the bounds of the image, and a reference to the map.
   overlay = new OslohavnOverlay(bounds, srcImage, map)
 
@@ -158,13 +157,13 @@ function initMap() {
       data: { id: '7PN5S' }
       //Grønningen/sadelmakerhullet/fisketorget 360
     },*/
-    /*{
+    {
       lat: 59.9091202,
       lng: 10.7475000,
       type: 'marker360',
-      data: { id: '7PNhL' }
+      data: { id: '7PNhL', title: 'Fred. Olsens gate'  }
       //Grønningen 360
-    },*/
+    },
     {
       lat: 59.9088002,
       lng: 10.7481000,
@@ -218,7 +217,7 @@ function initMap() {
       lat: 59.9101702,
       lng: 10.7485500,
       type: 'marker360',
-      data: { id: '7PN5t', title: 'Fred Olsens gate/Prinsens gate' }
+      data: { id: '7PN5t', title: 'Fred. Olsens gate/Prinsens gate' }
       //Fred Olsens gt/prinsens gt 360
     },
     {
@@ -274,7 +273,7 @@ function initMap() {
       lat: 59.9094202,
       lng: 10.7480300,
       type: 'marker3d',
-      data: { id: 'fbbedd3820494d16b87130d4fa49470e', title: 'Tollvaktboden' }
+      data: { id: 'fbbedd3820494d16b87130d4fa49470e', title: 'Corps de garde' }
       //tollvaktboden 3D
     },
     {
@@ -288,22 +287,22 @@ function initMap() {
       lat: 59.9108202,
       lng: 10.7506900,
       type: 'markerSpill',
-      data: { id: 'WebGL10/index.html', title: 'Kjeglebane-spill' }
+      data: { id: 'Kjeglebanen/index.html', title: 'Kjeglebane-spill' }
       //kjeglebane-spill
-    }
+    },
    /* {
       lat: 59.9099002,
       lng: 10.7506000,
       type: 'marker360',
       data: { url: 'christiania-havn_equirectangular.jpg' }
       //paléhaven
-    },
+    },*/
     {
-      lat: 59.9082,
-      lng: 10.74,
+      lat: 59.908849,
+      lng: 10.751809,
       type: 'markerFilm',
-      data: { id: '2TKXdVJ0waY'}
-    }*/
+      data: { id: 'x53I9o4jgks', title: 'Oslo havn 1798'}
+    }
   ]
 
   if( isMobile.any() ) {
@@ -311,7 +310,7 @@ function initMap() {
       lat: 59.9108202,
       lng: 10.7506900,
       type: 'markerSpill',
-      data: { id: 'https://c.simmer.io/static/unityFrame/index.html?url=https%3A%2F%2Fsimmercdn.com%2Funity%2FRZffdeDw9pggAqlC58PnEn9tHAF3%2Fcontent%2F02cd7674-d011-21a6-e99e-4c1f56daad22&imagePath=screens/16.png', title: 'Kjeglebane-spill (krever WebGL)' }
+      data: { id: 'https://c.simmer.io/static/unityFrame/index.html?url=https%3A%2F%2Fsimmercdn.com%2Funity%2FRZffdeDw9pggAqlC58PnEn9tHAF3%2Fcontent%2Ffb2142db-d4ad-abab-9c79-a6f7a251da64&imagePath=screens/0.png', title: 'Kjeglebane-spill (krever WebGL)' }
       //kjeglebane-spill
     }
   };
@@ -492,6 +491,30 @@ OslohavnOverlay.prototype.onRemove = function () {
   this.div_.parentNode.removeChild(this.div_)
   this.div_ = null
 }
+
+// Set the visibility to 'hidden' or 'visible'.
+OslohavnOverlay.prototype.hide = function() {
+  if (this.div_) {
+    // The visibility property must be a string enclosed in quotes.
+    this.div_.style.visibility = 'hidden';
+  }
+};
+
+OslohavnOverlay.prototype.show = function() {
+  if (this.div_) {
+    this.div_.style.visibility = 'visible';
+  }
+};
+
+OslohavnOverlay.prototype.toggle = function() {
+  if (this.div_) {
+    if (this.div_.style.visibility === 'hidden') {
+      this.show();
+    } else {
+      this.hide();
+    }
+  }
+};
 
 //Call geolocalization
 var watchID
