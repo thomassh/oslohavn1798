@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="shortcut icon" href="https://oslohavn1798.no/favicon.ico?v=2" type="image/x-icon" />
 	<meta property="og:title" content="Oslo havn 1798">
 	<meta property="og:description" content="En interaktiv historieopplevelse.">
 	<meta property="og:image" content="https://oslohavn1798.no/img/oslohavn1798.jpg">
@@ -20,12 +21,13 @@
 <title>Oslo havn 1798</title>
 
 <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,600,600i&amp;subset=latin-ext" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="css/oslohavn1798.css" />
+<!--<link rel="stylesheet" type="text/css" href="css/oslohavn1798.css" />-->
+<link rel="stylesheet" type="text/css" href="css/oslohavn1798.min.css" />
 <link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css" />
-
-
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1" />
 
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -36,6 +38,7 @@
 		<!--<div id="tidvis-logo"><a href="http://www.tidvis.no/" target="_blank"><img src="../img/tidvis.svg" alt="Tidvis AS"/></a></div>-->
 		<a href="http://www.tidvis.no/" target="_blank"><svg class="tidvis-logo" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.55 65.03"><defs></defs><title>tidvis</title><path class="cls-1" d="M88.34,47.54V14.05c0-.93-.85-1.39-2.56-1.39h-.55c-1.7,0-2.56.46-2.56,1.39V47.89a8.91,8.91,0,1,0,5.67-.35ZM86,60.05A3.92,3.92,0,1,1,90,56.13,3.93,3.93,0,0,1,86,60.05Z"/><path class="cls-1" d="M24.65,47.62V14.05c0-.93-.85-1.39-2.55-1.39h-.56c-1.7,0-2.55.46-2.55,1.39V47.78a8.89,8.89,0,1,0,5.66-.16ZM22.06,60.05A3.92,3.92,0,1,1,26,56.13,3.92,3.92,0,0,1,22.06,60.05Z"/><path class="cls-1" d="M12.16,37.2a3.2,3.2,0,0,0-.72.14,4.11,4.11,0,0,1-1.06.14,1.67,1.67,0,0,1-1.44-.67,4.16,4.16,0,0,1-.5-2.38V17.49h3.22A1,1,0,0,0,12.6,17a3.1,3.1,0,0,0,.28-1.53v-.72a3.12,3.12,0,0,0-.28-1.53,1,1,0,0,0-.94-.47H8.44V7.11c0-.93-.67-1.39-2-1.39H5.55c-1.33,0-2,.46-2.11,1.39l-.72,5.66H1.28a1.07,1.07,0,0,0-1,.47A2.87,2.87,0,0,0,0,14.77v.72A2.85,2.85,0,0,0,.31,17a1.07,1.07,0,0,0,1,.47H2.72V34.87q0,3.95,1.89,5.64A6.58,6.58,0,0,0,9.16,42.2a9.64,9.64,0,0,0,2.89-.44c.92-.3,1.39-.8,1.39-1.5a6.87,6.87,0,0,0-.36-1.86C12.84,37.6,12.53,37.2,12.16,37.2Z"/><path class="cls-1" d="M109.05,28.48a12.26,12.26,0,0,0-4.55-3.38,14.87,14.87,0,0,1-3.11-2.22,3.75,3.75,0,0,1-1.06-2.78,2.68,2.68,0,0,1,.94-2.17,3.78,3.78,0,0,1,2.45-.77,5.37,5.37,0,0,1,2.66.64,8.73,8.73,0,0,0,1.28.63c.33,0,.73-.44,1.19-1.33a4.92,4.92,0,0,0,.7-2.11c0-.74-.68-1.36-2-1.86a12.6,12.6,0,0,0-4.41-.75A8.51,8.51,0,0,0,97,14.6a7.76,7.76,0,0,0-2.36,5.94,7.7,7.7,0,0,0,1.47,4.95,11.88,11.88,0,0,0,4.3,3.16A12.91,12.91,0,0,1,103.83,31a4.11,4.11,0,0,1,1.11,2.95,3.47,3.47,0,0,1-.94,2.61,3.85,3.85,0,0,1-2.73.88A5.48,5.48,0,0,1,99.08,37a11,11,0,0,1-1.8-1,3.68,3.68,0,0,0-1-.56c-.37,0-.83.43-1.39,1.28a4.08,4.08,0,0,0-.83,2.05,2.21,2.21,0,0,0,1.08,1.61A8.68,8.68,0,0,0,98,41.78a12.81,12.81,0,0,0,3.69.53,8.88,8.88,0,0,0,6.39-2.39,8.23,8.23,0,0,0,2.5-6.22A8.34,8.34,0,0,0,109.05,28.48Z"/><path class="cls-1" d="M51.75,33.15V1.39C51.75.46,50.93,0,49.31,0h-.89C46.79,0,46,.46,46,1.39V14.88a7.18,7.18,0,0,0-5.49-2.5,7.58,7.58,0,0,0-6.69,3.89q-2.47,3.89-2.47,10.88a26.9,26.9,0,0,0,1,7.94,12,12,0,0,0,3,5.25,6.53,6.53,0,0,0,8.13.8,8.86,8.86,0,0,0,2.81-3A13.33,13.33,0,0,0,47,41a1.3,1.3,0,0,0,1.3.92,11.4,11.4,0,0,0,2.61-.36c1-.24,1.5-.59,1.5-1a17.72,17.72,0,0,0-.31-2A33.57,33.57,0,0,1,51.75,33.15ZM46,34a7.78,7.78,0,0,1-2,2.5,3.92,3.92,0,0,1-2.39.89c-1.44,0-2.52-.87-3.25-2.61a20.78,20.78,0,0,1-1.08-7.61,17.85,17.85,0,0,1,1.2-7.47A3.85,3.85,0,0,1,42,17.21a5,5,0,0,1,3.94,2Z"/><path class="cls-1" d="M77.4,13.66c0-.67-.74-1-2.22-1H74.07c-1.41,0-2.18.32-2.33.94L68.41,28.71q-.28,1.44-.89,5.83l-.23,1.61H67q-.72-5-1.22-7.44L62.41,13.6c-.15-.62-.89-.94-2.22-.94H59c-1.6,0-2.39.33-2.39,1a5.89,5.89,0,0,0,.11.89L63.46,41c.19.63.95.94,2.28.94h2.55c1.34,0,2.1-.31,2.28-.94l6.72-26.43A3.44,3.44,0,0,0,77.4,13.66Z"/></svg></a>
 		<nav class="site-nav">
+			<div class="site-nav-inner">
 			<ul>
 				<li><a href="start_eng">Home</a></li>
 				<li><a href="om_oslo_havn_eng">About the project</a></li>
@@ -43,6 +46,7 @@
 				<li><a href="historiske_kilder_eng">The history</a></li>
 				<li><a href="vi_takker_eng">We thank</a></li>
 			</ul>
+			</div>
 		</nav>
 		
 		<div class="menu-toggle">
@@ -58,7 +62,7 @@
 					<path fill="#002664" d="M0 210h640v60H0z"/>
 				  </svg>
 				  </a>
-				<a href="index_uk.html" target="self"><svg class="uk-flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+				<a href="index_eng.html" target="self"><svg class="uk-flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
 					<defs>
 					  <clipPath id="a">
 						<path fill-opacity=".7" d="M-85.3 0h682.6v512H-85.3z"/>
@@ -93,7 +97,7 @@
 		
 	</header>
 
-	<a href="index_eng.html" target="self"><div id="logo-box"><img id="logo" src="img/logo.png" /></div></a>
+	<a href="index_eng.html" target="_self"><div id="logo-box"><img id="logo" src="img/logo.png" /></div></a>
 	
 	<div id="cover-text" class="fade-up" lang="en"></div>
 
@@ -117,85 +121,14 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/perfect-scrollbar.min.js"></script>
-
+<script src="js/bottom-js.min.js"></script>
 
 <script>
-
-	$('.menu-toggle').click(function() {
-		$('.site-nav').toggleClass('site-nav--open', 400);
-		$(this).toggleClass('open');
-	});
-
-	// animate
-	$('.site-nav a').click(function(){
-		$('.site-nav').toggleClass('site-nav--open', 400);
-		$('.menu-toggle').toggleClass('open');
-	});
-
-	// initial
-	$(document).ready(function(){
+		// initial
+		$(document).ready(function(){
 		$('#cover-text').load('../start_eng.html');
 	});
-
-	// handle menu clicks
-	$('.site-nav a').click(function() {
-		var page = $(this).attr('href');
-		$('#cover-text').load('../' + page + '.html');
-		return false;
-	});
-
-	/*$('.language-menu-toggle').click(function() {
-  		$( "#language-menu" ).slideToggle(300);
-	});
-
-	// animate
-	$('.language-menu-toggle').click(function(){
-		$('.language-menu-toggle').toggleClass('open', 300);
-	});*/
-
-	// perfectscrollbar disabling
-
-	var is_xs = window.innerWidth < 630;
-	if (!is_xs) {
-		// initialize scroller
-		const ps = new PerfectScrollbar('#cover-text', {});
-
-	ps;
-	} else {
-		ps = null;
-	};
-
-	if (window.innerWidth < 630) {
-		$('.site-nav a').click(function() {
-			$('#cover-container').animate({scrollTop:$('#cover-text').position().top}, 'fast');
-		})
-	};
-
-
-
-
-	
-	/*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-		$("#cover-text"). perfectScrollbar('destroy');
-		ps = null;
-	} else 
-	{
-		
-	}*/
-
-	/*if (window.width > 479) {
- 		$("#cover-text"). perfectScrollbar('destroy');
-		ps = null;
-	}*/
-
-
-	  
-	
-
-
-
 </script>
-
 
 
 </body>

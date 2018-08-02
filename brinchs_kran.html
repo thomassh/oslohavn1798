@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" href="https://oslohavn1798.no/favicon.ico?v=2" type="image/x-icon" />
+    <meta property="og:title" content="Oslo havn 1798">
+    <meta property="og:description" content="En interaktiv historieopplevelse.">
+    <meta property="og:image" content="https://oslohavn1798.no/img/oslohavn1798.jpg">
+    <meta property="og:url" content="https://oslohavn1798.no">
+    <meta name="twitter:card" content="summary_large_image">
+
+  <meta charset="UTF-8">
+  <title>Oslo havn 1798</title>
+
+  <link rel="stylesheet" type="text/css" href="css/oslohavn1798.min.css" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1" />
+</head>
+
+<body>
+
+  <div id="button-menu">
+
+    <button type="button" id="ToggleOverlayBtn" value="Toggle visibility" onclick="overlay.toggle();">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <path d="M16 0c2.2 0 4.3 0.4 6.2 1.3 1.9 0.8 3.6 2 5.1 3.4 1.4 1.4 2.6 3.1 3.4 5.1 0.8 1.9 1.3 4 1.3 6.2s-0.4 4.3-1.2 6.2c-0.8 1.9-2 3.6-3.4 5.1 -1.4 1.4-3.1 2.6-5.1 3.4 -1.9 0.8-4 1.3-6.2 1.3 -2.2 0-4.3-0.4-6.2-1.2 -1.9-0.8-3.6-2-5.1-3.4C3.2 25.9 2.1 24.2 1.3 22.3c-0.8-1.9-1.2-4-1.2-6.2s0.4-4.3 1.3-6.2C2.1 7.8 3.2 6.1 4.7 4.7 6.1 3.2 7.8 2.1 9.8 1.3 11.7 0.4 13.8 0 16 0zM3 16c0 1.7 0.3 3.3 0.9 4.8 0.6 1.5 1.5 2.9 2.6 4l5.5-12.9 12.9-5.5c-1.2-1.1-2.5-1.9-4-2.6 -1.5-0.6-3.1-0.9-4.8-0.9 -1.8 0-3.5 0.3-5.1 1C9.4 4.7 8 5.6 6.8 6.8 5.6 8 4.7 9.4 4 11 3.4 12.5 3 14.2 3 16zM16 29c1.8 0 3.5-0.3 5.1-1 1.6-0.7 3-1.6 4.1-2.8 1.2-1.2 2.1-2.6 2.8-4.1 0.7-1.6 1-3.3 1-5.1 0-1.7-0.3-3.3-0.9-4.8S26.6 8.3 25.5 7.1l-5.5 12.9 -12.9 5.5c1.2 1.1 2.5 1.9 4 2.6C12.7 28.7 14.3 29 16 29zM18.3 18.3l-4.6-4.6 -3.4 8L18.3 18.3z"/>
+        </svg>
+    </button>
+  </div>
+
+  <div id="map"></div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQeOCQuyykCzjnb2M874aEVpHTl3RRR6Y"></script>
+
+  <script src="js/360_brinchs_kran.min.js" defer></script>
+
+</body>
+
+</html>
