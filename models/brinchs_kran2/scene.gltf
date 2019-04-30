@@ -1,0 +1,448 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 10874,
+      "max": [
+        23.078023910522461,
+        9.9000005722045898,
+        25.37742805480957
+      ],
+      "min": [
+        -5.0394439697265625,
+        -9.9277992248535156,
+        0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 130488,
+      "componentType": 5126,
+      "count": 10874,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 10874,
+      "max": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -0.99999922513961792,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 10874,
+      "max": [
+        0.99939155578613281,
+        0.99963021278381348
+      ],
+      "min": [
+        0.00039446586742997169,
+        0.00026923592668026686
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 17298,
+      "max": [
+        10873
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 260976,
+      "componentType": 5126,
+      "count": 2088,
+      "max": [
+        11.352447509765625,
+        11.160470962524414,
+        22.161201477050781
+      ],
+      "min": [
+        -5.352447509765625,
+        -11.072399139404297,
+        0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 286032,
+      "componentType": 5126,
+      "count": 2088,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 173984,
+      "componentType": 5126,
+      "count": 2088,
+      "max": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -0.82780283689498901,
+        1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 86992,
+      "componentType": 5126,
+      "count": 2088,
+      "max": [
+        0.99937039613723755,
+        0.9987940788269043
+      ],
+      "min": [
+        0.0022180327214300632,
+        0.0016430988907814026
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 69192,
+      "componentType": 5125,
+      "count": 3462,
+      "max": [
+        2087
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Tidvis (https://sketchfab.com/Tidvis)",
+      "license": "CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)",
+      "source": "https://sketchfab.com/models/bac9cbe7113c447b8705c6e894744ff3",
+      "title": "Brinchs Kran"
+    },
+    "generator": "Sketchfab-3.22.13",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 83040,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 103696,
+      "byteOffset": 83040,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 311088,
+      "byteOffset": 186736,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 207392,
+      "byteOffset": 497824,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 705216,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "https://img.gs/nqkkbfhlsg/512x512,fit/https://oslohavn1798.no/models/brinchs_kran2/textures/Brinchs_Kran_Tak_baseColor.png"
+    },
+    {
+      "uri": "https://img.gs/nqkkbfhlsg/512x512,fit/https://oslohavn1798.no/models/brinchs_kran2/textures/Brinchs_Kran_Tak_metallicRoughness.png"
+    },
+    {
+      "uri": "https://img.gs/nqkkbfhlsg/512x512,fit/https://oslohavn1798.no/models/brinchs_kran2/textures/Brinchs_Kran_Tak_normal.png"
+    },
+    {
+      "uri": "https://img.gs/nqkkbfhlsg/512x512,fit/https://oslohavn1798.no/models/brinchs_kran2/textures/Brinchs_Kran_baseColor.png"
+    },
+    {
+      "uri": "https://img.gs/nqkkbfhlsg/512x512,fit/https://oslohavn1798.no/models/brinchs_kran2/textures/Brinchs_Kran_normal.png"
+    },
+    {
+      "uri": "https://img.gs/nqkkbfhlsg/512x512,fit/https://oslohavn1798.no/models/brinchs_kran2/textures/Brinchs_Kran_metallicRoughness.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": false,
+      "name": "Brinchs_Kran",
+      "normalTexture": {
+        "index": 4,
+        "scale": 1,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 3,
+          "texCoord": 0
+        },
+        "metallicFactor": 1,
+        "metallicRoughnessTexture": {
+          "index": 5,
+          "texCoord": 0
+        },
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "doubleSided": false,
+      "name": "Brinchs_Kran_Tak",
+      "normalTexture": {
+        "index": 2,
+        "scale": 0.54266251860000003,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 1,
+        "metallicRoughnessTexture": {
+          "index": 1,
+          "texCoord": 0
+        },
+        "roughnessFactor": 1
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Brinchs_Kran_Brinchs_Kran_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Brinchs_Kran_Brinchs_Kran_Tak_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "9cd16366b66f455086da8c709c46cef7.fbx"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        5,
+        6
+      ],
+      "matrix": [
+        100,
+        0,
+        0,
+        0,
+        0,
+        -1.6292067939183141e-05,
+        -99.999999999998678,
+        0,
+        0,
+        99.999999999998678,
+        -1.6292067939183141e-05,
+        0,
+        0,
+        3000,
+        -15500,
+        1
+      ],
+      "name": "Brinchs_Kran"
+    },
+    {
+      "mesh": 0,
+      "name": "Brinchs_Kran_Brinchs_Kran_0"
+    },
+    {
+      "mesh": 1,
+      "name": "Brinchs_Kran_Brinchs_Kran_Tak_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    }
+  ]
+}
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>Tidvis AR</title>
+
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+<!--<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>-->
+<!--<script src="js/aframe-extras.min.js"></script>-->
+<!--<script src="js/animation-mixer.js"></script>-->
+<!--<script src="js/instascan.min.js"></script>-->
+
+</head>
+
+<body style="margin: 0px; overflow: hidden;">
+
+
+	
+  <a-scene vr-mode-ui="enabled: false;" embedded arjs="debugUIEnabled: false;">
+	
+	<a-assets>
+		<a-asset-item id="domkirke" src="models/scene2.gltf"></a-asset-item>
+		<a-asset-item id="brinch" src="models/brinchs_kran2/scene.gltf"></a-asset-item>
+		<a-asset-item id="boder" src="models/boder2/scene.gltf"></a-asset-item>
+	</a-assets>
+		
+		<!--Domkirkeplakat-->
+		
+		<a-marker type='pattern' preset='custom' url='img/pattern-marker.patt'>
+
+			<a-entity gltf-model="#domkirke" scale="0.0006 0.0006 0.0006" position="0 3 0" rotation="-90 0 0"></a-entity>
+
+		</a-marker>
+
+		<!--AR: Oslo domkirke-->
+		<a-marker type='pattern' preset='custom' url='img/a.patt'>
+
+			<a-entity gltf-model="#domkirke" scale="0.0008 0.0008 0.0008" position="0 1 0" rotation="0 -90 0"></a-entity>
+
+		</a-marker>
+		
+		<!--AR: Sjøboder-->
+		<a-marker type='pattern' preset='custom' url='img/b.patt'>
+
+			<a-entity gltf-model="#boder" scale="0.001 0.001 0.001" position="-1.5 1 0" rotation="0 -90 0"></a-entity>
+
+		</a-marker>
+
+		<!--AR: Brinchs kran-->
+		<a-marker type='pattern' preset='custom' url='img/c.patt'>
+
+			<a-entity gltf-model="#brinch" scale="0.001 0.001 0.001" position="15.7 -2.3 0.7" rotation="0 90 0"></a-entity>
+
+		</a-marker>
+		
+		<a-entity camera></a-entity>
+
+		<a-light type="directional" color="#ffffff" intensity="1.6" position="2.8 4.1 5.9"></a-light>
+		<a-light type="ambient" color="#ffffff" intensity="2.0" position="0 2.5 -3.5"></a-light>
+
+
+	</a-scene>
+
+
+		<!--<video id="preview" autoplay playsinline style="min-width:100%; min-height:100%; right:0; bottom:0; position:fixed;"></video>-->
+
+
+	<!--HTML5 QR-scanner-->
+	<!--<script>
+
+	  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+	  scanner.addListener('scan', function (content) {
+	// If it's a URL, open in here
+	if(content.indexOf("http://") === 0 || content.indexOf("https://") === 0)
+	window.location.assign(content)
+
+		//console.log(content);
+		});
+		
+		Instascan.Camera.getCameras().then(function (cameras) { 
+			if (cameras.length > 0) { scanner.start(cameras[1]); } 
+			else { console.error('No cameras found.'); } }).catch(function (e) { console.error(e); });
+	
+	</script>-->
+
+
+</body>
+
+</html>

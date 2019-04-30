@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tidvis AR</title>
+<script src="compass.js-master/lib/compass.js"></script>
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<!--<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>-->
+<!--<script src="js/aframe-extras.min.js"></script>-->
+<!--<script src="js/animation-mixer.js"></script>-->
+<!--<script src="js/instascan.min.js"></script>-->
+<style>
+        #text {
+          margin-top: 100px;
+          text-align: center;
+        }
+        #compass {
+          width: 200px;
+          height: 200px;
+          position: relative;
+          margin: 20px auto 0 auto;
+          border: 1px solid #ccc;
+          border-radius: 100px;
+        }
+        .north, .south {
+          position: absolute;
+          left: 94px;
+          width: 12px;
+          height: 100px;
+        }
+        .north {
+          top: 0;
+          background: red;
+          text-align: center;
+          font-size: 11px;
+        }
+        .south {
+          top: 100px;
+          background: black;
+        }
+        #meta {
+          margin-top: 20px;
+          text-align: center;
+        }
+      </style>
+
+<script>
+
+	//if(document.querySelector("a-marker").object3D.visible == false)
+	
+	//Check if user has GetUserMedia
+	function hasGetUserMedia() {
+  return !!(navigator.mediaDevices &&
+    navigator.mediaDevices.getUserMedia);
+}
+
+if (hasGetUserMedia()) {
+  // Good to go!
+} else {
+  alert('Please update or change your browser');
+}
+
+
+</script>
+
+
+<style> #arjsDebugUIContainer {display:none;} </style>
+
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+
+    <div id="text">initializing</div>
+
+	<video autoplay playsinline style="min-width:100%; min-height:100%; right:0; bottom:0; position:fixed;"></video>
+
+    <script>
+         AFRAME.registerComponent('compass', {
+           init: function () {
+             this.pointer = document.getElementById('pointer');
+           },
+     
+           tick: function () {
+             var yRotation = this.el.getAttribute('rotation').y;
+             this.pointer.style.transform = 'rotate(' + yRotation + 'deg)';
+           }
+         });
+    </script>
+        
+
+
+
+	<a-scene vr-mode-ui="enabled:false;">
+
+	<a-assets>
+			<img id="sky" src="img/test360.png" />
+    </a-assets>
+
+	<a-sky src="#sky" rotation="0 7 0" ar-compass><!--<div id="compass"><div class="north">N</div><div class="south">S</div></div>-->
+    </a-sky>	
+
+    <div id="meta"></div>
+
+	<a-camera></a-camera>
+
+
+	</a-scene>
+
+
+
+	
+
+
+<script>
+
+const videoConstraints = {video: true, facingMode: 'environment'};
+
+const constraints = {
+	video: videoConstraints,
+	audio: false
+};
+
+const video = document.querySelector('video');
+
+navigator.mediaDevices.getUserMedia(constraints).
+	then((stream) => {video.srcObject = stream});
+	
+</script>	
+
+
+<!--<script>
+        var byId = function (id) {
+          return document.getElementById(id);
+        };
+        var text = function (id, value) {
+          byId(id).innerHTML = value;
+        };
+        var transform = function (id, commands) {
+          var props = ['transform', 'webkitTransform', 'mozTransform',
+                       'msTransform', 'oTransform'];
+          var node  = byId(id);
+          for (var i = 0; i < props.length; i ++) {
+            if ( typeof(node.style[props[i]]) != 'undefined' ) {
+              node.style[props[i]] = commands;
+              break;
+            }
+          }
+        };
+        var round = function (value) {
+          return Math.round(value * 100) / 100;
+        };
+  
+        Compass.noSupport(function () {
+          text('text', 'no support');
+        }).needGPS(function () {
+          text('text', 'need GPS');
+        }).needMove(function () {
+          text('text', 'need move');
+        }).init(function (method) {
+          if ( method == 'orientationAndGPS' ) {
+            text('meta', 'GPS diff: ' + round(Compass._gpsDiff));
+          }
+        }).watch(function (heading) {
+          text('text', round(heading));
+          transform('compass', 'rotate(' + (-heading) + 'deg)');
+        });
+      </script>-->
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
+<script src="js/aframe-extras.min.js"></script>
+<script src="js/animation-mixer.js"></script>
+
+<!--<script>if(document.querySelector("a-marker").object3D.visible == false);</script>-->
+
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+	
+<!--<a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled:false;">-->
+    <a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled:false;">
+
+  <a-assets>
+			<a-asset-item id="object" src="models/mariakirken/mariakirken.gltf"></a-asset-item>
+			<!--<a-asset-item id="object" src="models/Holmsbupram_2/Holmsbupram2.obj"></a-asset-item>
+			<a-asset-item id="material" src="models/Holmsbupram_2/Holmsbupram2.mtl"></a-asset-item>-->
+  </a-assets>
+	
+  		
+
+
+
+
+		
+	
+		<!-- define your markers -->
+		<a-marker type='pattern' url='img/pattern-marker.patt'>
+		  <!-- here define the content to display on top of the marker -->
+			<!--<a-entity obj-model="obj: #object; mtl: #material" position="0 0.5 6.5" scale="0.3 0.3 0.3"></a-entity>-->
+			<a-entity gltf-model="#object" scale="0.001 0.001 0.001" position="-1 1 0"></a-entity>
+		</a-marker>
+
+        <a-entity camera position="0 0 0"></a-entity>
+
+	</a-scene>
+
+  
+
+</body>
+
+</html>

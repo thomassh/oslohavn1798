@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <h1 class="thick">Undervisningsopplegg</h1>
+    <p><i>Oslo havn 1798</i> er laget for å stimulere til refleksjon om historisk endring og utvikling. 
+    Ved å se, høre og ellers sanselig erfare hvordan det kan ha vært i en norsk havn på slutten av 
+    1700-tallet ønsker vi å sette i gang tanker som:</p>
+  
+    <ul>
+    <li><p class="thick">Hvordan ville hverdagen vært om jeg levde på 1700-tallet?</p></li>
+    <li><p class="thick">Hvordan har Norge og verden utviklet seg siden 1798?</p></li>
+    <li><p class="thick">Hva er likt og ulikt – i 1798 og nå?</p></li>
+    </ul>
+
+<p>Med utgangspunkt i refleksjonene om endringene fra 1798 til i dag, hvordan kan vi forholde oss til fremtiden?</p>
+<p>Om det ikke er praktisk mulig å fysisk være til stedet i Bjørvika og der sammenligne 1798 med i dag oppfordrer vi til å bruke kartet og street view funksjonen. For å gjøre det – se ned til du finner den røde prikken. Klikk på den, og så velg street view-funksjonen. Reflekter så over hvordan det så ut i 1798 og i dag. Bruk gjerne litt tid på å tenke over hvordan det kan ha sett ut der du bor på slutten av 1700-tallet, og endringene frem til i dag.</p> 
+<p>Her har vi lagt ut et knippe undervisningsopplegg som fritt kan benyttes i undervisningen eller som inspirasjon. Vi tar gjerne også forslag på nye.</p>
+
+<ul class="undervisningsopplegg skole-liste">
+<li><a href="silhuetter_og_opplysningstid.html">Silhuetter og opplysningstid</a></li>
+<li><a href="skole_og_skoleboker.html">Skole og skolebøker på 1700-tallet</a></li>
+<li><a href="handel_pa_1700-tallet.html">Handel på 1700-tallet</a></li>
+<li><a href="sosial_ulikhet.html">Sosial ulikhet</a></li>
+</ul>
+
+<p>For ytterligere faglig bakgrunnsmateriale henviser vi til lærebøkene som brukes i skolen, samt <a href="https://ndla.no/nb/node/52253" target="_blank">NDLA historie - Norge 1500-1800.</a></p>
+
+</br></br></br></br>  
+
+</div>
+<script>
+        // handle menu clicks
+        $('.skole-liste a').click(function() {
+            var page = $(this).attr('href');
+            $('#cover-text-skole').load(page);
+            window.location.hash = page;
+            return false;
+        });
+    
+        $(document).ready(function() { 
+            if (window.location.hash) { 
+                $('#cover-text-skole').load(window.location.hash.substring(1))
+            }
+        });
+    
+    </script>
+<!--<script>	
+        // handle menu clicks
+            $('#cover-text-skole a').click(function() {
+                var page = $(this).attr('href');
+            $('#cover-text-skole').load('../' + page + '.html');
+            $('#cover-container-skole').scrollTop(0);
+            window.location.hash = $(this).attr("href");
+                return false;
+          });
+        
+</script>-->
+
+
+        
+<html>

@@ -26,12 +26,12 @@ img {
 
 ::-moz-selection { /* Code for Firefox */
     color: white;
-    background: #ee984d; 
+    background: #f1a664; 
 }
 
 ::selection {
     color: white;
-    background: #ee984d; 
+    background: #f1a664; 
 }
 
 a {
@@ -42,6 +42,10 @@ a {
 
 a:hover {
     color:white;
+}
+
+p.thick {
+    font-weight: bold;
 }
 
 /* Startside */
@@ -147,10 +151,90 @@ svg.norway-flag, svg.uk-flag {
     float:right;
 }
 
+.norway-flag path, .uk-flag path {
+    transition: fill ease-in-out .3s ;
+}
+
 .norway-flag:hover path, .uk-flag:hover path{
     fill: white;
-    transition: fill ease-in-out .3s ;
+}
 
+#skole, #skole2, #print-map, #donate {
+    position:absolute;
+    top:5px;
+    right:250px;
+    -webkit-transform: rotate(4deg);
+	-moz-transform: rotate(4deg);
+	-ms-transform: rotate(4deg);
+	-o-transform: rotate(4deg);
+    transform: rotate(4deg);
+}
+
+#skole a, #skole2 a, #print-map a, #donate a {
+    font-size:1.6em;
+    color:white;
+    background-color:#f1a664;
+    padding:10px 5px 5px 5px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+#print-map {
+    right:360px;
+}
+
+#donate {
+    right:485px;
+}
+
+#skole a:hover, #print-map a:hover, #donate a:hover {
+    background-color:white;
+    color:#f1a664;
+}
+
+#skole2 a:hover {
+    background-color: black;
+}
+
+.laerer-info, .elev-info {
+    margin-bottom:15px;
+    width:100%;
+    padding:10px;
+    background-color:#f1a664;
+    border:none;
+    outline:none;
+    font-size:2rem;
+    text-align:left;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.laerer-info:hover, .elev-info:hover {
+    background-color:#4f8bc6;
+    color:white;
+}
+
+.responsive-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.skole-liste {
+    list-style-image: url('../img/favicon_16.png');
+    list-style-position: inside;
+}
+
+.skole-liste2 {
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+div.arrow-up, div.arrow-down, div.arrow-up2, div.arrow-down2 {
+    float:right;
+    font-size:1.5rem;
+    line-height:0;
+    margin-top:15px;
 }
 
 /*#language-bar ul {
@@ -234,24 +318,33 @@ svg.norway-flag, svg.uk-flag {
 
 .tidvis-logo path {
     fill:black;
+    transition: fill ease-in-out .3s ;
+
 }
 
 #partnere {
     width:100%;
     height:auto;
+    max-width:1100px;
     position:fixed;
+    padding:0px 40px 0px 40px;
     z-index:2000;
     bottom:10px;
 }
 
-#partnere img {
-    width:7.2%;
+.partnere {
+    /*width:7.2%;*/
+    width:100%;
     height:auto;
-    max-height:50px;
+    /*max-height:50px;*/
     min-width:30px;
-    margin-left:5px;
-    margin-right:5px;
+    /*margin-left:5px;
+    margin-right:5px;*/
     vertical-align:middle;
+}
+
+.partnere_mobil {
+    display:none;
 }
 
 /*#logo-app {
@@ -521,11 +614,26 @@ svg.norway-flag, svg.uk-flag {
     -webkit-overflow-scrolling: touch;
 }
 
-/*#cover-text::-webkit-scrollbar {
-    display:none;
+#cover-container-skole {
+    height:100%;
+    position:relative;
+    background-position: center;
+    text-align:center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*#cover-container-skole {
+    height:auto;
+    overflow-y:visible;
+    position:relative;
+    background-position: center;
+    text-align:center;
+    -webkit-overflow-scrolling: touch;
 }*/
 
-#cover-text {
+#cover-text, #donate-text {
     position:relative;
     text-align:left;
     width:500px;
@@ -536,34 +644,74 @@ svg.norway-flag, svg.uk-flag {
     left:40%;
 }
 
-#cover-text p {
+#donate-text {
+    height:80vh;
+}
+
+#cover-text p, li, #donate-text p, li, #cover-text-skole p, li {
     font-size:2.0rem;
     hyphens: auto;
     margin-bottom:10px;
 }
 
-#cover-text h1 {
+#cover-text h1, #donate-text h1, #cover-text-skole h1, .games-container h1 {
     font-size:3.8rem;
     line-height:40px;
     hyphens: manual;
     margin-bottom:15px;
 }
 
+#cover-text-skole {
+    position:relative;
+    text-align:left;
+    width:500px;
+    height:auto;
+    overflow-y:scroll;
+    overflow-x:hidden; 
+    top:65px;
+    margin-bottom:20px;
+    left:40%;
+}
+
+/*#cover-text-skole {
+    position:relative;
+    text-align:left;
+    width:500px;
+    height:auto;
+    overflow-y:auto;
+    overflow-x:hidden; 
+    top:65px;
+    margin-bottom:20px;
+    left:40%;
+}*/
+
+#cover-text-skole a:hover {
+    color:#4f8bc6;
+}
+
+.bold {
+    font-weight:bold;
+}
+
 /*knapp som fører til appen*/
 #app-button {
     width:230px;
     height:60px;
+    margin-top:15px;
     text-align:center;	
-    margin-top:35px;
     background-color: transparent !important;
     border:2px solid white;
     border-radius: 10px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    font-size:2.0rem;
+    font-size:1.7rem;
     color:white;
     outline:none;
     cursor: pointer;
+}
+
+.first-button {
+    margin-right:20px;
 }
 
 #app-button:hover {
@@ -627,6 +775,38 @@ svg.norway-flag, svg.uk-flag {
 #ToggleOverlayBtn svg path {
     fill:black;
 }
+
+/*Games*/
+
+.games-container {
+    width:70%;
+    margin:auto;
+    top:30px;
+    position:relative;
+    margin-bottom:40px;
+}
+
+.game {
+    width:45%;
+    margin:1.5%;
+    display:inline-block;
+    position: relative;
+}
+
+.game img {
+    width:100%;
+    max-width:300px;
+    min-width:180px;
+    height:auto;
+}
+
+.games-container p {
+    color:white;
+    font-size:2rem;
+    margin:5px;
+}
+
+
 
 /* Modal button */
 
@@ -703,24 +883,36 @@ svg.norway-flag, svg.uk-flag {
 
 @media only screen and (min-width: 830px) { 
 
-    #partnere img:nth-child(12) {
+/*    #partnere img:nth-child(12) {
         margin-left:-4px;
-    }
+    }*/
 }
 
 
 @media only screen and (min-width: 630px) and (max-width: 830px) {
     #logo {
         width:200px;
-        top: 38px;
+        top:38px;
         left:25px;
     }
 
-    #cover-text {
+    #cover-text, #cover-text-skole, #donate-text {
         width: 400px;
         left:36%;
     }
 
+    #cover-text p, #donate-text p  {
+        font-size:1.8rem;
+    }
+
+    #app-button {
+        width: 180px;
+        margin-top:10px;
+        font-size:1.3rem;
+
+    }
+
+/*
     #partnere img {
         width:6.4%;
     }
@@ -732,7 +924,7 @@ svg.norway-flag, svg.uk-flag {
     #partnere img:nth-child(12) {
         margin-left:-2px;
     }
-
+*/
     .noscroll {overflow:hidden !important; overflow-y:hidden !important;}
 
     
@@ -784,10 +976,18 @@ svg.norway-flag, svg.uk-flag {
         left:0px;
         position:relative;
     }
+
+    #app-button {
+        float:left;
+    }
+
+    /*#cover-container-skole {
+        overflow-y:visible;
+    }*/
     
-    #cover-text {
+    #cover-text, #cover-text-skole, #donate-text {
         width:80%;
-        height:auto;
+        /*height:auto;*/
         display:inline-block;
         left:0%;
         top:0px;
@@ -798,12 +998,16 @@ svg.norway-flag, svg.uk-flag {
         text-align: center;
     }
 
-    #cover-text p {
+    #cover-text-skole, #donate-text {
+        color:black;
+    }
+
+    #cover-text p, li, #cover-text-skole p, li, #donate-text p, li {
         font-size:1.8rem;
         text-align:left;
     }
     
-    #cover-text h1 {
+    #cover-text h1, #cover-text-skole h1, .games-container h1 {
         font-size:3.2rem;
         text-align:left;
     }
@@ -812,18 +1016,23 @@ svg.norway-flag, svg.uk-flag {
         position:relative;
         margin-top:50px;
     }
+
+    .partnere {
+        display:none;
+    }
     
-    #partnere img {
+    .partnere_mobil {
+        max-width:200px;
         display:block;
         position:relative;
-        max-height:120px;
-        width:50%;
-        max-width:200px;
+        /*max-height:120px;*/
+        /*width:50%;*/
+        /*max-width:200px;*/
         margin-left:auto;
         margin-right:auto;
         margin-bottom:40px;
     }
-    
+    /*
     #partnere img:nth-child(4) {
         margin-top:10px;
         margin-bottom:60px;
@@ -832,7 +1041,7 @@ svg.norway-flag, svg.uk-flag {
     #partnere img:nth-child(8) {
         margin-top:30px;
     }
-
+*/
     #logo-box-app {
         display:none;
     }
@@ -840,6 +1049,39 @@ svg.norway-flag, svg.uk-flag {
     #language-bar { 
         top:16px;
         right:70px;
+    }
+
+    #skole, #skole2 {
+        right:120px;
+    }
+
+    #print-map {
+        right:230px;
+        display:none;
+    }
+
+    #donate {
+        right:210px;
+    }
+
+    #donate a, #print-map a, #skole a {
+        font-size:1.3em;
+    }
+    
+    #skole a:hover, #print-map a:hover {
+        color:#f1a664;
+        background-color:transparent;
+    }
+    
+    #skole2 a:hover {
+        background-color:black;
+    }
+
+    .game {
+        display:block;
+        width:100%;
+        margin:0;
+        margin-bottom:15px;
     }
 
    /* .modal-content {
@@ -897,6 +1139,7 @@ svg.norway-flag, svg.uk-flag {
     mask-image: linear-gradient(to bottom, white 85%, transparent);
 }
 
+/*
 #partnere img:nth-child(1) {
     margin-right:10px;
 }
@@ -929,25 +1172,52 @@ svg.norway-flag, svg.uk-flag {
 
 .tidvis-logo:hover path {
     fill:white;
-    transition: fill ease-in-out .3s ;
 }
 
+#cover-container-skole .tidvis-logo:hover path {
+    fill:#4f8bc6;
+}
+*/
 }
 
 
 /*iframes*/
-.gm-style-iw {
+/*.gm-style-iw {
 	top: 15px !important;
 	background-color:#4f8bc6;
 	box-shadow: 0 0px 6px rgba(0, 0, 0, 0.5);
     text-align:center;
     padding-top:10px;
 	border-radius: 10px 10px 10px 10px;
+}*/
+
+.custom-close {
+    opacity: 1;
+    right: -5px;
+    top: -5px;
+    position:absolute;
+    outline:none;
+    width: 23px;
+    height: 23px;
+    background-image: url(../img/x.svg);
+    border: 5px solid #4f8bc6;
+    border-radius: 50%;
+    box-shadow: 0 0 5px black;
+    background-color: #4f8bc6;
+    overflow: hidden;
+    cursor:pointer;
+}
+
+.custom-close:hover {
+    background-color:black;
+    border: 5px solid black;
+    transition: all 0.3s ease-in-out;
 }
 
 .iw-title {
     font-size: 1.6rem;
     letter-spacing: 0.04rem;
+    text-align:center;
     padding:5px;
     padding-bottom:7px;
     color: white;
@@ -964,3 +1234,24 @@ iframe {
     margin:0px !important;
     max-width:100% !important;
 }
+
+.custom-window {
+    margin-top: 0px !important;
+}
+
+@media print {
+    #logo, #logo-box, #partnere, #language-bar, #skole, #skole2, .laerer-info, .elev-info {
+        display:none;
+    }
+
+    #cover-text, #cover-text-skole {
+        left:15%;
+        height:auto;
+    }
+
+    * {
+        overflow: visible !important;
+        overflow-y: visible !important;
+        }
+
+    }

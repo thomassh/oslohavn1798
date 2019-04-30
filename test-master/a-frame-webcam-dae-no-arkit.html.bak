@@ -1,0 +1,252 @@
+<html>
+<head>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script src="https://aframe.io/aframe/dist/aframe-master.min.js"></script>
+<script src="https://cdn.rawgit.com/chrisveness/latlon-geohash/53c3d474/latlon-geohash.js"></script>
+<script src="components.js"></script>
+<script>
+
+var hash_fences = {};
+
+function ce(t,a){ var f = document.createElement(t); for(var k in a) f.setAttribute(k, a[k]); return f; }
+
+function load_hash(d){
+	
+	hash_fences[d.hash] = d.objects;
+	
+	for(var i=0; i<d.objects.length; i++){
+		
+		var
+			o = d.objects[i],
+			element_id = 'fence_' + o.id.replace(':', '_')
+		;
+		
+		if(!document.getElementById(element_id)){
+			
+			fences.appendChild( ce(
+				'a-collada-model',
+				{
+					'id': element_id,
+					'src': 'https://yaglov.ru/cadastre/fence.php?id='+encodeURIComponent(o.id),
+					'gps-place': 'longitude: '+o.extent.xmin+'; latitude: '+o.extent.ymin,
+					'transparent-texture': ''
+				}
+			) );
+			
+		}
+		
+	}
+	
+}
+
+var initBGWebcam = function(onReady, onError){
+	var _this = this;
+	
+	var domElement = (function(onReady, onError) {
+		var _this = this;
+		
+		// init default value
+		onError = onError || function(error){
+			alert('Webcam Error\nName: '+error.name + '\nMessage: '+error.message);
+		}
+		
+		var domElement = document.createElement('video');
+		domElement.setAttribute('autoplay', '');
+		domElement.setAttribute('muted', '');
+		domElement.setAttribute('playsinline', '');
+		domElement.style.width = 640+'px';
+		domElement.style.height = 480+'px';
+		
+		// check API is available
+		if (navigator.mediaDevices === undefined 
+				|| navigator.mediaDevices.enumerateDevices === undefined 
+				|| navigator.mediaDevices.getUserMedia === undefined  ){
+			if( navigator.mediaDevices === undefined )
+				var fctName = 'navigator.mediaDevices';
+			else if( navigator.mediaDevices.enumerateDevices === undefined )
+				var fctName = 'navigator.mediaDevices.enumerateDevices';
+			else if( navigator.mediaDevices.getUserMedia === undefined )
+				var fctName = 'navigator.mediaDevices.getUserMedia';
+			else console.assert(false);
+				onError({
+					name: '',
+					message: 'WebRTC issue-! '+fctName+' not present in your browser'
+				});
+			return null;
+		}
+		
+		// get available devices
+		navigator.mediaDevices.enumerateDevices().then(function(devices) {
+					var userMediaConstraints = {
+				audio: false,
+				video: {
+					facingMode: 'environment',
+					width: {
+						ideal: 640,
+						// min: 1024,
+						// max: 1920
+					},
+					height: {
+						ideal: 480,
+						// min: 776,
+						// max: 1080
+					}
+				}
+					};
+			// get a device which satisfy the constraints
+			navigator.mediaDevices.getUserMedia(userMediaConstraints).then(function success(stream) {
+				// set the .src of the domElement
+				domElement.srcObject = stream;
+				// to start the video, when it is possible to start it only on userevent. like in android
+				document.body.addEventListener('click', function(){
+					domElement.play();
+				})
+				// domElement.play();
+				
+				// TODO listen to loadedmetadata instead
+				// wait until the video stream is ready
+				var interval = setInterval(function() {
+					if (!domElement.videoWidth)	return;
+					onReady()
+					clearInterval(interval)
+				}, 1000/50);
+				
+			}).catch(function(error) {
+				onError({
+					name: error.name,
+					message: error.message
+				});
+			});
+		}).catch(function(error) {
+			onError({
+				message: error.message
+			});
+		});
+		
+		return domElement;
+	})(function onSourceReady(){
+		document.body.appendChild(_this.domElement);
+		_this.ready = true;
+		onReady && onReady();
+	}, onError);
+	
+	
+	// attach
+	this.domElement = domElement;
+	this.domElement.style.position = 'absolute';
+	this.domElement.style.top = '0px';
+	this.domElement.style.left = '0px';
+	this.domElement.style.zIndex = '-2';
+	
+	return this;
+	
+}
+
+window.onload = function(){
+	
+	var camera = document.getElementById('camera');
+	
+	camera.addEventListener('componentchanged', function (evt) {
+		switch(evt.detail.name){
+			case 'rotation':
+				var newData = evt.target.getAttribute('rotation');
+				console.log('camera rotation changed', newData);
+				var
+					compassRotation = camera.components['compass-rotation'],
+					lookControls = camera.components['look-controls']
+				;
+				camera_angle.innerText = newData.y;
+				if(lookControls){
+					yaw_angle.innerText = THREE.Math.radToDeg(lookControls.yawObject.rotation.y);
+				}
+				if(compassRotation){
+					compass_heading.innerText = compassRotation.heading;
+				}
+				break;
+			case 'position':
+				var newData = evt.target.getAttribute('position');
+				console.log('camera position changed', newData);
+				var
+					gpsPosition = camera.components['gps-position']
+				;
+				camera_p_x.innerText = newData.x;
+				camera_p_z.innerText = newData.z;
+				if(gpsPosition){
+					if(gpsPosition.crd){
+						crd_longitude.innerText = gpsPosition.crd.longitude;
+						crd_latitude.innerText = gpsPosition.crd.latitude;
+						
+						var hash = Geohash.encode(gpsPosition.crd.latitude, gpsPosition.crd.longitude, 7);
+						geohash_7chars.innerText = hash;
+						
+						if(typeof(hash_fences[hash]) == 'undefined'){
+							hash_fences[hash] = null;
+							document.head.appendChild(ce('script', {
+								src: 'https://yaglov.ru/cadastre/hash.php?hash='+hash+'&callback=load_hash'
+							}));
+						}
+						
+					}
+					if(gpsPosition.zeroCrd){
+						zero_crd_longitude.innerText = gpsPosition.zeroCrd.longitude;
+						zero_crd_latitude.innerText = gpsPosition.zeroCrd.latitude;
+					}
+				}
+				
+				break;
+		}
+	});
+	
+	
+	initBGWebcam.call(document.body);
+	
+	
+};
+
+
+</script>
+</head>
+<body style='margin: 0px; overflow: hidden;'>
+	
+	<div style="position: fixed; top: 10px; width:100%; text-align: center; z-index: 1; text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">
+		<div>
+			coords: <span id="crd_longitude"></span>, <span id="crd_latitude"></span>
+				(zero coords: <span id="zero_crd_longitude"></span>, <span id="zero_crd_latitude"></span>)
+		</div>
+		<div>
+			camera coords: <span id="camera_p_x"></span>, <span id="camera_p_z"></span>
+		</div>
+		<div>
+			compass heading: <span id="compass_heading"></span>,
+			camera angle: <span id="camera_angle"></span>,
+			yaw angle: <span id="yaw_angle"></span>
+		</div>
+		<div>geohash_7chars: <span id="geohash_7chars"></span></div>
+	</div>
+	
+	<a-scene><!--  -->
+		
+		<a-camera id="camera" user-height="1.6" gps-position compass-rotation><!--  --></a-camera>
+		
+		<a-assets id="assets">
+			<!--
+			<a-asset-item id="fence_50_31_0040507_9_asset" src="fence_50_31_0040507_9.dae"></a-asset-item>
+			<a-asset-item id="fence_50_31_0040507_6_asset" src="fence_50_31_0040507_6.dae"></a-asset-item>
+			<a-asset-item id="fence_50_31_0040507_16_asset" src="fence_50_31_0040507_16.dae"></a-asset-item>
+			<a-asset-item id="fence_50_31_0040507_25_asset" src="fence_50_31_0040507_25.dae"></a-asset-item>
+			-->
+		</a-assets>
+		
+		<a-entity id="fences">
+			<!--
+			<a-entity id="fence_50_31_0040507_9" collada-model="#fence_50_31_0040507_9_asset" transparent-texture gps-place="longitude: 37.469666813539; latitude: 55.153989996861"></a-entity>
+			<a-entity id="fence_50_31_0040507_6" collada-model="#fence_50_31_0040507_6_asset" transparent-texture gps-place="longitude: 37.469775988244; latitude: 55.154190366984"></a-entity>
+			<a-entity id="fence_50_31_0040507_16" collada-model="#fence_50_31_0040507_16_asset" transparent-texture gps-place="longitude: 37.469140087271; latitude: 55.153874109378"></a-entity>
+			<a-entity id="fence_50_31_0040507_25" collada-model="#fence_50_31_0040507_25_asset" transparent-texture gps-place="longitude: 37.470954400759; latitude: 55.153490379075"></a-entity>
+			-->
+		</a-entity>
+		
+	</a-scene>
+</body>
+</html>

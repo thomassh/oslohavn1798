@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>Tidvis AR</title>
+
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<!--<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>-->
+<!--<script src="js/aframe-extras.min.js"></script>-->
+<!--<script src="js/animation-mixer.js"></script>-->
+<!--<script src="js/instascan.min.js"></script>-->
+
+<script>
+
+	//if(document.querySelector("a-marker").object3D.visible == false)
+	
+	//Check if user has GetUserMedia
+	function hasGetUserMedia() {
+  return !!(navigator.mediaDevices &&
+    navigator.mediaDevices.getUserMedia);
+}
+
+if (hasGetUserMedia()) {
+  // Good to go!
+} else {
+  alert('Please update or change your browser');
+}
+
+
+</script>
+
+
+<style> #arjsDebugUIContainer {display:none;} </style>
+
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+
+
+	<video autoplay playsinline style="min-width:100%; min-height:100%; right:0; bottom:0; position:fixed;"></video>
+
+
+
+	<a-scene>
+	<!--<a-scene vr-mode-ui="enabled:false;">-->
+
+
+		<a-assets>
+			<img id="sky" src="img/test360.png" />
+  </a-assets>
+
+	<a-sky src="#sky"></a-sky>	
+
+	<a-camera></a-camera>
+
+
+	</a-scene>
+
+
+
+	
+
+
+<script>
+
+const videoConstraints = {video: true, facingMode: 'environment'};
+
+const constraints = {
+	video: videoConstraints,
+	audio: false
+};
+
+const video = document.querySelector('video');
+
+navigator.mediaDevices.getUserMedia(constraints).
+	then((stream) => {video.srcObject = stream});
+	
+</script>	
+
+</body>
+
+</html>

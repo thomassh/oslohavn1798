@@ -13,7 +13,7 @@
     document.getElementsByTagName('head')[0].appendChild(js_file);
   }
 });*/
-/*
+
 var isMobile = {
   Android: function() {
       return navigator.userAgent.match(/Android/i);
@@ -34,7 +34,7 @@ var isMobile = {
       return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
   }
 };
-*/
+
 
 //The custom overlay object's prototype to a new instance of OverlayView
 var overlay
@@ -53,11 +53,11 @@ function initMap() {
     maxZoom: 18,
     streetViewControl: true,
     streetViewControlOptions: {
-      position: google.maps.ControlPosition.LEFT_TOP
+      position: google.maps.ControlPosition.RIGHT_TOP
   },
     zoomControl: true,
     zoomControlOptions: {
-      position: google.maps.ControlPosition.LEFT_TOP
+      position: google.maps.ControlPosition.RIGHT_TOP
   },
     mapTypeControl: false,
     fullscreenControl: true,
@@ -78,15 +78,15 @@ function initMap() {
   // The custom overlay object contains the overlay,
   // the bounds of the image, and a reference to the map.
   overlay = new OslohavnOverlay(bounds, srcImage, map)
-/*
+
   var icons = {
     marker3d: '3d-punkt.svg',
     marker360: '360-punkt.svg',
     markerFilm: 'film-punkt.svg',
     markerSpill: 'spill-punkt.svg',
   }
-*/
- /* var features = [*/
+
+  var features = [
     /*{
       lat: 59.9097022,
       lng: 10.7513600,
@@ -108,13 +108,13 @@ function initMap() {
       data: { id: 'ad88057e7ecb40f58b333bb33037802c' }
       //fred olsensgt/tollbugt 3D
     },*/
-   /* {
+    {
       lat: 59.9090502,
       lng: 10.7537000,
       type: 'marker360',
-      data: { id: '7PNhh', title: 'Bordtomter' }
+      data: { id: '7kGPY', title: 'Bordtomter' }
       //bordtomter 360
-    },*/
+    },
     /*{
       lat: 59.9079002,
       lng: 10.7533900,
@@ -128,34 +128,34 @@ function initMap() {
       type: 'marker360',
       data: { id: '7PNSG', title: 'Brinchs kran' }
       //Nære på Brinchs kran 360
-    },
+    },*/
     {
       lat: 59.9095402,
       lng: 10.7478000,
       type: 'marker360',
-      data: { id: '7PN5B', title: 'Tollbugata/Fred Olsens gate' }
+      data: { id: '7kGP9', title: 'Tollbugata/Fred Olsens gate' }
       //Tollbugata/Fred Olsens gt 360
     },
     {
       lat: 59.9089502,
       lng: 10.7498800,
       type: 'marker360',
-      data: { id: '7PNhN', title: 'Utenfor Tollboden' }
+      data: { id: '7kGPq', title: 'Utenfor Tollboden' }
       //Ved siden av Tollboden 360
     },
     {
       lat: 59.9092002,
       lng: 10.7489800,
       type: 'marker360',
-      data: { id: '7PNSm', title: 'Strandgata/Tollbugata' }
+      data: { id: '7kGPK', title: 'Strandgata/Tollbugata' }
       //Strandgata/Tollbugata 360
     },
     {
       lat: 59.9107702,
       lng: 10.7503500,
       type: 'marker360',
-      data: { id: '7PNSp', title: 'Kjeglebane' }
-      //Kjeglebane 360
+      data: { id: '7kGP1', title: 'Kjøpmann Meyer' }
+      //Kjøpmann Meyer 360
     },
     /*{
       lat: 59.9085002,
@@ -164,34 +164,34 @@ function initMap() {
       data: { id: '7PN5S' }
       //Grønningen/sadelmakerhullet/fisketorget 360
     },*/
-    /*{
+    {
       lat: 59.9091202,
       lng: 10.7475000,
       type: 'marker360',
-      data: { id: '7PNhL', title: 'Fred. Olsens gate'  }
+      data: { id: '7kGPw', title: 'Fred. Olsens gate'  }
       //Grønningen 360
     },
     {
       lat: 59.9088002,
       lng: 10.7481000,
       type: 'marker360',
-      data: { id: '7PNSq', title: 'Grønningen' }
+      data: { id: '7kGYc', title: 'Grønningen' }
       //Grønningen/Børshagen 360
-    },
+    },/*
     {
       lat: 59.9089002,
       lng: 10.7478000,
       type: 'marker360',
       data: { id: '7PNSX', title: 'Over Grønningen' }
       //Grønningen/Børshagen oversikt 360
-    },
+    },*/
     {
       lat: 59.9082602,
       lng: 10.7473400,
       type: 'marker360',
-      data: { id: '7PNSP', title: 'Fisketorget' }
+      data: { id: '7kGPk', title: 'Fisketorget' }
       //Fisketorget 360
-    },
+    },/*
     {
       lat: 59.9075602,
       lng: 10.7484000,
@@ -205,57 +205,57 @@ function initMap() {
       type: 'marker360',
       data: { id: '7PNSl', title: 'Sadelmakerhullet' }
       //Sadelmakerhullet 360
-    },
+    },*/
     {
       lat: 59.910713,
       lng: 10.749119,
       type: 'marker360',
-      data: { id: '7PNh0', title: 'Inngangen til Paleet' }
-      //foran inngagen til Paleet 360
-    },
+      data: { id: '7kGPb', title: 'Inngangen til Paleet' }
+      //foran inngangen til Paleet 360
+    },/*
     {
       lat: 59.9098402,
       lng: 10.7483000,
       type: 'marker360',
       data: { id: '7PNhp', title: 'Treschowgården' }
       //Treschowgården 360
-    },
+    },*/
     {
       lat: 59.9101702,
       lng: 10.7485500,
       type: 'marker360',
-      data: { id: '7PN5t', title: 'Fred. Olsens gate/Prinsens gate' }
+      data: { id: '7kGPZ', title: 'Fred. Olsens gate/Prinsens gate' }
       //Fred Olsens gt/prinsens gt 360
     },
     {
       lat: 59.9100002,
       lng: 10.74958000,
       type: 'marker360',
-      data: { id: '7PNh7', title: 'Paleet og Paléhagen' }
+      data: { id: '7kGPD', title: 'Paleet og Paléhagen' }
       //Paleet/paléhaven 360
     },
     {
-      lat: 59.9095002,
-      lng: 10.75150000,
+      lat: 59.9092002,
+      lng: 10.75153000,
       type: 'marker360',
-      data: { id: '7PNh5', title: 'Havnebassenget utenfor Paléhagen' }
+      data: { id: '7kGPs', title: 'Havnebassenget utenfor Paléhagen' }
       //Havnebassenget utenfor paviljongen 360
     },
     {
       lat: 59.9088002,
       lng: 10.75070000,
       type: 'marker360',
-      data: { id: '7PNJF', title: 'Havnebassenget utenfor Tollboden' }
+      data: { id: '7kGPc', title: 'Havnebassenget utenfor Tollboden' }
       //Havnebassenget utenfor Tollboden 360
-    },
-    /*{
+    },/*
+    {
       lat: 59.9099002,
       lng: 10.7506000,
       type: 'marker360',
       data: { id: '7lrPJ' }
       //paléhaven
     },*/
-   /* {
+    {
       lat: 59.9074802,
       lng: 10.7535600,
       type: 'marker3d',
@@ -296,15 +296,15 @@ function initMap() {
       type: 'markerSpill',
       data: { id: 'Kjeglebanen/index.html', title: 'Kjeglebane-spill' }
       //kjeglebane-spill
-    },
-   /* {
+    },/*
+    {
       lat: 59.9099002,
       lng: 10.7506000,
       type: 'marker360',
       data: { url: 'christiania-havn_equirectangular.jpg' }
       //paléhaven
     },*/
-   /* {
+    {
       lat: 59.908849,
       lng: 10.751809,
       type: 'markerFilm',
@@ -338,7 +338,7 @@ function initMap() {
     </a-camera>
   
   </a-scene></div>`},*/
-/*  marker360: function (data){return `<div id="iw-container"><div class="iw-content"><iframe width="260" height="379"
+  marker360: function (data){return `<div id="iw-container"><div class="iw-content"><iframe width="260" height="379"
   style="width: 260px; height: 379px; border: none;" frameborder="0" allow="vr,gyroscope,accelerometer,fullscreen"
   scrolling="no" allowfullscreen="true" style="max-width: 100%;" 
   src="https://kuula.co/share/${data.id}?fs=1&vr=1&iosfs=1&thumbs=1&hideinst=1&chromeless=1&logo=-1"></iframe><div class="iw-title"><p>${data.title}</p></div></div></div>`
@@ -369,6 +369,58 @@ function initMap() {
       map
     })
 
+         // Set up a close delay for CSS animations
+         var infoWindow = null;
+         var closeDelayed = false;
+         var closeDelayHandler = function() {
+             $(infoWindow.getWrapper()).removeClass('active');
+             setTimeout(function() {
+                 closeDelayed = true;
+                 infoWindow.close();
+             }, 300);
+         };
+     
+         // Add a Snazzy Info Window to the marker
+        var infoWindow = new SnazzyInfoWindow({
+         marker: marker,
+         wrapperClass: 'custom-window',
+         closeWhenOthersOpen: 'true',
+         offset: {
+             top: '-60px'
+         },
+         edgeOffset: {
+             top: 50,
+             right: 60,
+             bottom: 50
+         },
+         border: false,
+         closeButtonMarkup: '<button type="button" class="custom-close"></button>',
+         callbacks: {
+             open: function() {
+                 $(this.getWrapper()).addClass('open');
+             },
+             afterOpen: function() {
+                 var wrapper = $(this.getWrapper());
+                 wrapper.addClass('active');
+                 wrapper.find('.custom-close').on('click', closeDelayHandler);
+             },
+             beforeClose: function() {
+                 if (!closeDelayed) {
+                     closeDelayHandler();
+                     return false;
+                 }
+                 return true;
+             },
+             afterClose: function() {
+                 var wrapper = $(this.getWrapper());
+                 wrapper.find('.custom-close').off();
+                 wrapper.removeClass('open');
+                 closeDelayed = false;
+             }
+         }
+     });
+     
+
     marker.addListener('click', function () {
       var template = templates[feature.type];
       var content = template(feature.data);
@@ -391,7 +443,7 @@ function initMap() {
   // the creation of the infowindow HTML structure 'domready'
   // and before the opening of the infowindow, defined styles are applied.
   // *
-/*  google.maps.event.addListener(infoWindow, 'domready', function() {
+  google.maps.event.addListener(infoWindow, 'domready', function() {
 
     // Reference to the DIV that wraps the bottom of infowindow
     var iwOuter = $('.gm-style-iw');
@@ -400,7 +452,7 @@ function initMap() {
      * We use jQuery and create a iwBackground variable,
      * and took advantage of the existing reference .gm-style-iw for the previous div with .prev().
     */
- /*   var iwBackground = iwOuter.prev();
+    var iwBackground = iwOuter.prev();
 
     // Removes background shadow DIV
     iwBackground.children(':nth-child(2)').css({'display' : 'none'});
@@ -415,18 +467,18 @@ function initMap() {
     var iwCloseBtn = iwOuter.next();
 
     // Apply the desired effect to the close button
-    iwCloseBtn.css({opacity: '1', right: '8px', top: '5px', width: '23px', height: '23px', 'content': 'url(img/x.svg)', 'border': '5px solid #4f8bc6', 'border-radius': '50%', 'box-shadow': '0 0 5px black', 'background-color': '#4f8bc6'});
+    iwCloseBtn.css({opacity: '1', right: '8px', top: '5px', width: '23px', height: '23px', 'background-image': 'url(img/x.svg)', 'border': '5px solid #4f8bc6', 'border-radius': '50%', 'box-shadow': '0 0 5px black', 'background-color': '#4f8bc6', 'overflow': 'hidden'});
 
     // If the content of infowindow not exceed the set maximum height, then the gradient is removed.
-    /*if($('.iw-content').height() < 140){
+    if($('.iw-content').height() < 140){
       $('.iw-bottom-gradient').css({display: 'none'});
-    }*/
+    }
 
-/*    // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
+   // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
     iwCloseBtn.mouseout(function(){
       $(this).css({opacity: '1'});
     });
-  });*/
+  });
 
 } //End of initMap
 
@@ -546,7 +598,7 @@ function successCallback(position) {
   }
 }
 
-function startWatch() {
+/*function startWatch() {
   var toggleWatchBtn = document.getElementById('toggleWatchBtn')
 
   toggleWatchBtn.onclick = function () {
@@ -559,7 +611,7 @@ function startWatch() {
       showPosition()
     }
   }
-}
+}*/
 
 /*var marker=null;
 function customMarker(position) {
@@ -585,7 +637,7 @@ function customMarker(position) {
 };*/
 
 // Initialise the whole system (above)
-window.onload = startWatch
+/*window.onload = startWatch*/
 
 // google.maps.event.addDomListener(window, 'load', initMap);
 
