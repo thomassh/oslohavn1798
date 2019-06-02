@@ -1,14 +1,14 @@
 	$('.menu-toggle').click(function() {
 		$('.site-nav').toggleClass('site-nav--open', 400);
 		$(this).toggleClass('open');
-		$('html, body, #cover-container, #cover-container-skole, #cover-text, #cover-text-skole').toggleClass('noscroll');
+		$('html, body, #cover-container, #cover-container-skole, #cover-text, #cover-text-skole, #help-text').toggleClass('noscroll');
 	});
 
 	// animate
 	$('.site-nav a').click(function(){
 		$('.site-nav').toggleClass('site-nav--open', 400);
 		$('.menu-toggle').toggleClass('open');
-		$('html, body, #cover-container, #cover-container-skole, #cover-text, #cover-text-skole').toggleClass('noscroll');
+		$('html, body, #cover-container, #cover-container-skole, #cover-text, #cover-text-skole, #help-text').toggleClass('noscroll');
 	});
 
 	// initial

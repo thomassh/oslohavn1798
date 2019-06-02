@@ -633,11 +633,11 @@ div.arrow-up, div.arrow-down, div.arrow-up2, div.arrow-down2 {
     -webkit-overflow-scrolling: touch;
 }*/
 
-#cover-text, #donate-text {
+#cover-text, #donate-text, #help-text {
     position:relative;
     text-align:left;
     width:500px;
-    height:65vh;
+    height:70vh;
     overflow-y:scroll;
     overflow-x:hidden; 
     top:65px;
@@ -648,20 +648,20 @@ div.arrow-up, div.arrow-down, div.arrow-up2, div.arrow-down2 {
     height:80vh;
 }
 
-#cover-text p, li, #donate-text p, li, #cover-text-skole p, li {
+#cover-text p, li, #donate-text p, li, #cover-text-skole p, li, #help-text p, li {
     font-size:2.0rem;
     hyphens: auto;
     margin-bottom:10px;
 }
 
-#cover-text h1, #donate-text h1, #cover-text-skole h1, .games-container h1 {
+#cover-text h1, #donate-text h1, #cover-text-skole h1, .games-container h1, #help-text h1 {
     font-size:3.8rem;
     line-height:40px;
     hyphens: manual;
     margin-bottom:15px;
 }
 
-#cover-text-skole {
+#cover-text-skole, #help-text {
     position:relative;
     text-align:left;
     width:500px;
@@ -715,6 +715,28 @@ div.arrow-up, div.arrow-down, div.arrow-up2, div.arrow-down2 {
 }
 
 #app-button:hover {
+    background-color: white !important;
+    color:black;
+}
+
+#help {
+    text-align:center;
+    float:right;
+    width:180px;
+    margin-right:42.5px;
+    background-color:rgb(202, 0, 0);
+    border-radius: 0px 0px 10px 10px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    outline:none;
+    border:none;
+    cursor: pointer;
+    font-size:1.5rem !important;
+    color:white;
+    padding:8px;
+}
+
+#help:hover {
     background-color: white !important;
     color:black;
 }
@@ -896,12 +918,12 @@ div.arrow-up, div.arrow-down, div.arrow-up2, div.arrow-down2 {
         left:25px;
     }
 
-    #cover-text, #cover-text-skole, #donate-text {
+    #cover-text, #cover-text-skole, #donate-text, #help-text {
         width: 400px;
         left:36%;
     }
 
-    #cover-text p, #donate-text p  {
+    #cover-text p, #donate-text p, #help-text p  {
         font-size:1.8rem;
     }
 
@@ -909,7 +931,12 @@ div.arrow-up, div.arrow-down, div.arrow-up2, div.arrow-down2 {
         width: 180px;
         margin-top:10px;
         font-size:1.3rem;
+    }
 
+    #help {
+        font-size: 1.4em !important;
+        width:160px;
+        margin-right:28px;
     }
 
 /*
@@ -981,11 +1008,20 @@ div.arrow-up, div.arrow-down, div.arrow-up2, div.arrow-down2 {
         float:left;
     }
 
+    #help {
+        float:left;
+        margin-left:25px;
+    }
+
     /*#cover-container-skole {
         overflow-y:visible;
     }*/
+
+    #cover-text {
+        height:auto;
+    }
     
-    #cover-text, #cover-text-skole, #donate-text {
+    #cover-text, #cover-text-skole, #donate-text, #help-text {
         width:80%;
         /*height:auto;*/
         display:inline-block;
@@ -998,16 +1034,16 @@ div.arrow-up, div.arrow-down, div.arrow-up2, div.arrow-down2 {
         text-align: center;
     }
 
-    #cover-text-skole, #donate-text {
+    #cover-text-skole, #donate-text, #help-text {
         color:black;
     }
 
-    #cover-text p, li, #cover-text-skole p, li, #donate-text p, li {
+    #cover-text p, li, #cover-text-skole p, li, #donate-text p, li, #help-text p, li {
         font-size:1.8rem;
         text-align:left;
     }
     
-    #cover-text h1, #cover-text-skole h1, .games-container h1 {
+    #cover-text h1, #cover-text-skole h1, .games-container h1, #help-text h1 {
         font-size:3.2rem;
         text-align:left;
     }
@@ -1135,8 +1171,8 @@ div.arrow-up, div.arrow-down, div.arrow-up2, div.arrow-down2 {
 
 .fade-up {
     /*mix-blend-mode: hard-light;*/
-    -webkit-mask-image: linear-gradient(to bottom, white 85%, transparent);
-    mask-image: linear-gradient(to bottom, white 85%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, white 88%, transparent);
+    mask-image: linear-gradient(to bottom, white 88%, transparent);
 }
 
 /*

@@ -115,13 +115,13 @@ function initMap() {
       data: { id: '7kGPY', title: 'Bordtomter' }
       //bordtomter 360
     },
-    /*{
+    {
       lat: 59.9079002,
       lng: 10.7533900,
       type: 'marker360',
-      data: { id: '7PNJv', title: 'Havnebassenget ved Brinchs kran' }
+      data: { id: '7klPq', title: 'Havnebassenget ved Brinchs kran' }
       //Utenfor Brinchs kran 360
-    },*/
+    },
     /*{
       lat: 59.9073902,
       lng: 10.7531000,
@@ -242,10 +242,10 @@ function initMap() {
       //Havnebassenget utenfor paviljongen 360
     },
     {
-      lat: 59.9088002,
-      lng: 10.75070000,
+      lat: 59.9090002,
+      lng: 10.75052000,
       type: 'marker360',
-      data: { id: '7kGPc', title: 'Havnebassenget utenfor Tollboden' }
+      data: { id: '7kG4z', title: 'På tollbodbryggen foran Tollboden' }
       //Havnebassenget utenfor Tollboden 360
     },/*
     {
